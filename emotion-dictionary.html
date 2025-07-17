@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감정 단어 사전</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+         /* SUITE Variable 폰트 (로컬 파일) */
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+           
+            src: url('./SUITE-Variable.woff2') format('woff2-variations');
+        }
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        <!-- 페이지 제목 -->
+        <header class="text-center mb-10 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">감정 단어 사전</h1>
+            <p class="mt-3 text-lg text-gray-600">다양한 감정을 탐색하고 이해해 보세요.</p>
+        </header>
+
+        <!-- 긍정적 감정 섹션 -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-blue-600 border-b-4 border-blue-200 pb-2 mb-8">긍정적인 감정들</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 감사 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">감사</h3>
+                    <p class="text-gray-700 mb-4">다른 사람이 나에게 좋은 일을 해주었을 때 고마운 마음이 드는 것입니다. 친구가 도움을 주거나 부모님이 맛있는 음식을 해주실 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 고마움, 감사함, 고맙다, 감사드린다, 은혜를 느끼다</p>
+                </div>
+                <!-- 희망 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">희망</h3>
+                    <p class="text-gray-700 mb-4">좋은 일이 일어날 거라고 믿는 마음입니다. 시험을 잘 볼 수 있을 거라고 생각하거나, 내일 날씨가 좋을 거라고 기대하는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 기대, 바람, 소원, 희망적이다, 낙관적이다, 기대하다</p>
+                </div>
+                <!-- 만족 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">만족</h3>
+                    <p class="text-gray-700 mb-4">원하던 것을 얻었거나 목표를 이뤘을 때 느끼는 기분 좋은 감정입니다. 숙제를 다 끝냈을 때나 좋아하는 음식을 먹었을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 흡족하다, 뿌듯하다, 만족스럽다, 충족되다, 성취감을 느끼다</p>
+                </div>
+                <!-- 추가 긍정 감정들 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">소망</h3>
+                    <p class="text-gray-700 mb-4">무언가를 간절히 바라는 마음입니다. 친구와 더 가까워지고 싶거나, 좋은 성적을 받고 싶은 마음이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 바람, 소원, 희망, 갈망, 간절히 원하다, 바라다</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">포근</h3>
+                    <p class="text-gray-700 mb-4">따뜻하고 안전한 느낌입니다. 엄마 품에 안겨있거나 따뜻한 이불 속에 있을 때 느끼는 편안한 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 따뜻하다, 아늑하다, 편안하다, 안락하다, 푸근하다</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">너그러움</h3>
+                    <p class="text-gray-700 mb-4">다른 사람의 실수를 용서해주고 이해해주는 마음입니다. 친구가 실수했을 때 화내지 않고 괜찮다고 말해주는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 관대하다, 용서하다, 이해하다, 포용하다, 관용을 베풀다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">안심</h3>
+                    <p class="text-gray-700 mb-4">걱정이 사라지고 마음이 편해지는 감정입니다. 잃어버린 물건을 찾았을 때나 시험이 생각보다 쉬웠을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 마음이 놓이다, 안도하다, 편안하다, 걱정이 사라지다, 후련하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">차분</h3>
+                    <p class="text-gray-700 mb-4">마음이 평온하고 조용한 상태입니다. 산책을 하거나 조용한 음악을 들을 때 느끼는 고요한 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 평온하다, 고요하다, 조용하다, 안정되다, 침착하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">행복</h3>
+                    <p class="text-gray-700 mb-4">기분이 매우 좋고 즐거운 감정입니다. 친구들과 놀거나 좋아하는 일을 할 때 느끼는 가장 기본적인 좋은 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 기쁘다, 즐겁다, 좋다, 흐뭇하다, 기분이 좋다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">기쁨</h3>
+                    <p class="text-gray-700 mb-4">무언가 좋은 일이 생겼을 때 느끼는 밝고 즐거운 감정입니다. 생일선물을 받거나 좋은 소식을 들었을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 즐거움, 환기, 기분이 좋다, 신나다, 유쾌하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">사랑</h3>
+                    <p class="text-gray-700 mb-4">누군가를 아끼고 소중히 여기는 마음입니다. 가족, 친구, 애완동물에게 느끼는 따뜻한 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 아끼다, 소중히 여기다, 좋아하다, 애정을 갖다, 정이 들다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">신남</h3>
+                    <p class="text-gray-700 mb-4">에너지가 넘치고 활기찬 감정입니다. 재미있는 게임을 하거나 좋아하는 활동을 할 때 느끼는 들뜬 기분이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 들뜨다, 흥분되다, 활기차다, 에너지가 넘치다, 기운이 좋다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">즐거움</h3>
+                    <p class="text-gray-700 mb-4">재미있고 유쾌한 감정입니다. 친구들과 농담을 하거나 재미있는 영화를 볼 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 재미있다, 유쾌하다, 쾌활하다, 명랑하다, 즐겁다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">열정</h3>
+                    <p class="text-gray-700 mb-4">무언가에 대해 강한 관심과 의욕을 가진 감정입니다. 좋아하는 스포츠나 취미 활동을 할 때 느끼는 뜨거운 마음이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 의욕적이다, 열심히 하다, 뜨겁다, 적극적이다, 열중하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">감탄</h3>
+                    <p class="text-gray-700 mb-4">놀랍고 멋진 것을 봤을 때 느끼는 감정입니다. 아름다운 풍경을 보거나 대단한 일을 봤을 때 "와!"라고 말하게 되는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 놀라다, 경탄하다, 신기하다, 놀랍다, 감동받다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">자랑</h3>
+                    <p class="text-gray-700 mb-4">내가 한 일이나 가진 것에 대해 뿌듯하고 자랑스러운 감정입니다. 좋은 성적을 받거나 칭찬을 받았을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 뿌듯하다, 자랑스럽다, 자부심을 느끼다, 성취감을 느끼다, 기분이 좋다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">놀람</h3>
+                    <p class="text-gray-700 mb-4">예상하지 못한 일이 일어났을 때 느끼는 감정입니다. 갑작스러운 소리를 듣거나 깜짝 선물을 받았을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 깜짝 놀라다, 놀라다, 당황하다, 흠칫하다, 깜짝하다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 중립적 감정 섹션 -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-600 border-b-4 border-gray-300 pb-2 mb-8">중립적인 감정들</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 보통 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-gray-500">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">보통</h3>
+                    <p class="text-gray-700 mb-4">특별히 좋지도 나쁘지도 않은 평범한 감정 상태입니다. 일상생활에서 가장 많이 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 평범하다, 그저 그렇다, 무난하다, 평상시와 같다, 별로 특별하지 않다</p>
+                </div>
+                <!-- 고독 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-gray-500">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">고독</h3>
+                    <p class="text-gray-700 mb-4">혼자 있는 상태인데, 외롭다기보다는 조용하고 평화로운 느낌입니다. 혼자만의 시간을 즐기는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 혼자 있다, 조용하다, 평화롭다, 한적하다, 정적이다</p>
+                </div>
+                <!-- 측은 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-gray-500">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">측은</h3>
+                    <p class="text-gray-700 mb-4">다른 사람의 어려운 상황을 보며 안타까워하는 마음입니다. 친구가 힘들어할 때 도와주고 싶은 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 안타깝다, 불쌍하다, 동정하다, 가엾다, 연민을 느끼다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 부정적 감정 섹션 -->
+        <section>
+            <h2 class="text-3xl font-bold text-red-600 border-b-4 border-red-200 pb-2 mb-8">부정적인 감정들</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 질투 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">질투</h3>
+                    <p class="text-gray-700 mb-4">다른 사람이 가진 것을 부러워하며 시기하는 감정입니다. 친구가 새로운 장난감을 가지고 있을 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 시기하다, 부러워하다, 샘내다, 질투하다, 선망하다</p>
+                </div>
+                <!-- 그리움 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">그리움</h3>
+                    <p class="text-gray-700 mb-4">멀리 있거나 만날 수 없는 사람을 보고 싶어하는 마음입니다. 이사 간 친구나 할머니 할아버지를 생각할 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 보고 싶다, 그립다, 그리워하다, 생각나다, 간절히 보고 싶다</p>
+                </div>
+                <!-- 부끄러움 카드 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">부끄러움</h3>
+                    <p class="text-gray-700 mb-4">남 앞에서 창피하거나 민망한 감정입니다. 실수를 했을 때나 사람들 앞에서 발표할 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 창피하다, 민망하다, 쑥스럽다, 부끄럽다, 얼굴이 빨갛다</p>
+                </div>
+                <!-- 추가 부정 감정들 -->
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">소심</h3>
+                    <p class="text-gray-700 mb-4">자신감이 없고 주저하게 되는 감정입니다. 새로운 사람들과 만날 때나 어려운 일에 도전할 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 주저하다, 자신감이 없다, 조심스럽다, 겁나다, 움츠러들다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">긴장</h3>
+                    <p class="text-gray-700 mb-4">중요한 일을 앞두고 마음이 조마조마한 감정입니다. 시험을 보기 전이나 발표를 할 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 떨리다, 조마조마하다, 조급하다, 불안하다, 초조하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">뉘우침</h3>
+                    <p class="text-gray-700 mb-4">잘못한 일에 대해 후회하고 반성하는 마음입니다. 친구에게 상처를 주었을 때나 거짓말을 했을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 후회하다, 반성하다, 미안하다, 죄송하다, 잘못했다고 생각하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">난해</h3>
+                    <p class="text-gray-700 mb-4">무언가를 이해하기 어려워서 답답한 감정입니다. 어려운 수학 문제를 풀 때나 복잡한 설명을 들을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 어렵다, 복잡하다, 헷갈리다, 이해하기 힘들다, 답답하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">피곤</h3>
+                    <p class="text-gray-700 mb-4">몸이나 마음이 지치고 힘든 감정입니다. 많은 활동을 한 후나 충분히 쉬지 못했을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 지치다, 힘들다, 나른하다, 노곤하다, 기운이 없다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">걱정</h3>
+                    <p class="text-gray-700 mb-4">앞으로 일어날 일에 대해 불안하고 염려하는 마음입니다. 시험 결과나 친구 관계에 대해 생각할 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 염려하다, 불안하다, 근심하다, 마음이 무겁다, 걱정되다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">따분</h3>
+                    <p class="text-gray-700 mb-4">재미없고 지루한 감정입니다. 할 일이 없거나 흥미롭지 않은 활동을 할 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 지루하다, 재미없다, 심심하다, 싫증나다, 권태롭다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">후회</h3>
+                    <p class="text-gray-700 mb-4">이미 한 일에 대해 다시 생각해보니 잘못했다고 느끼는 감정입니다. 다르게 행동했으면 좋았을 것이라고 생각할 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 뉘우치다, 아쉽다, 반성하다, 잘못했다고 생각하다, 돌이키고 싶다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">슬픔</h3>
+                    <p class="text-gray-700 mb-4">마음이 아프고 우울한 감정입니다. 소중한 것을 잃었을 때나 친구와 헤어질 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 서럽다, 울적하다, 쓸쓸하다, 마음이 아프다, 우울하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">실망</h3>
+                    <p class="text-gray-700 mb-4">기대했던 것과 다른 결과가 나왔을 때 느끼는 감정입니다. 원했던 선물을 받지 못했거나 약속이 취소되었을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 아쉽다, 허무하다, 기대가 어긋나다, 허탈하다, 맥이 빠지다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">역겨움</h3>
+                    <p class="text-gray-700 mb-4">무언가가 매우 불쾌하고 싫은 감정입니다. 상한 음식을 먹었을 때나 더러운 것을 봤을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 혐오스럽다, 구역질나다, 불쾌하다, 메스껍다, 싫다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">포기</h3>
+                    <p class="text-gray-700 mb-4">더 이상 노력하지 않고 그만두고 싶은 감정입니다. 어려운 일이 계속 안 풀릴 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 그만두다, 체념하다, 단념하다, 의욕이 없다, 힘이 빠지다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">두려움</h3>
+                    <p class="text-gray-700 mb-4">무서운 것에 대한 감정입니다. 어둠이나 높은 곳, 무서운 영화를 볼 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 무섭다, 겁나다, 떨리다, 공포스럽다, 무서워하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">외로움</h3>
+                    <p class="text-gray-700 mb-4">혼자 있다고 느끼며 다른 사람과 함께 있고 싶은 감정입니다. 친구들이 모두 바쁠 때나 새로운 곳에 왔을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 쓸쓸하다, 적적하다, 고독하다, 혼자라고 느끼다, 외롭다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">좌절</h3>
+                    <p class="text-gray-700 mb-4">계획한 일이 잘 안 되거나 실패했을 때 느끼는 감정입니다. 열심히 준비했는데 원하는 결과가 나오지 않을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 절망하다, 낙담하다, 실망하다, 의기소침하다, 기가 꺾이다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">불안</h3>
+                    <p class="text-gray-700 mb-4">마음이 편하지 않고 초조한 감정입니다. 확실하지 않은 일에 대해 걱정할 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 걱정되다, 초조하다, 불안하다, 마음이 무겁다, 조마조마하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">우울</h3>
+                    <p class="text-gray-700 mb-4">기분이 많이 가라앉고 의욕이 없는 감정입니다. 오랫동안 슬프거나 재미있는 일이 없을 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 울적하다, 슬프다, 기분이 가라앉다, 의욕이 없다, 침울하다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">당황</h3>
+                    <p class="text-gray-700 mb-4">갑작스러운 상황에 어떻게 해야 할지 모르겠는 감정입니다. 예상치 못한 질문을 받았을 때나 실수를 했을 때 느껴요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 어리둥절하다, 황당하다, 놀라다, 당황스럽다, 혼란스럽다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">바람</h3>
+                    <p class="text-gray-700 mb-4">무언가를 원하고 희망하는 마음입니다. 소망과 비슷하지만 더 간절한 느낌이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 원하다, 소망하다, 기대하다, 희망하다, 바라다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">짜증</h3>
+                    <p class="text-gray-700 mb-4">작은 일에도 화가 나고 기분이 나쁜 감정입니다. 일이 내 뜻대로 안 될 때나 피곤할 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 기분이 나쁘다, 신경질나다, 화나다, 귀찮다, 성가시다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">미움</h3>
+                    <p class="text-gray-700 mb-4">누군가를 매우 싫어하고 거부하는 감정입니다. 나를 괴롭히는 사람이나 불공평한 상황에 대해 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 싫어하다, 혐오하다, 거부하다, 적대하다, 원수로 여기다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">반감</h3>
+                    <p class="text-gray-700 mb-4">누군가나 무언가에 대해 좋지 않은 느낌을 가지는 감정입니다. 미움보다는 약하지만 싫어하는 마음이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 싫어하다, 거부감을 느끼다, 좋지 않게 보다, 반대하다, 거리감을 느끼다</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">화</h3>
+                    <p class="text-gray-700 mb-4">분노하고 격한 감정입니다. 불공평한 일을 당했을 때나 누군가 나를 화나게 했을 때 느끼는 감정이에요.</p>
+                    <p class="text-sm text-gray-600"><strong class="font-semibold">비슷한 표현:</strong> 분노하다, 격분하다, 성내다, 화내다, 열받다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 맺음말 -->
+        <footer class="mt-16 pt-8 border-t-2 border-gray-200 text-center">
+            <p class="text-gray-700 text-lg">
+                감정을 느끼는 것은 자연스러운 일이에요. 좋은 감정뿐만 아니라 나쁜 감정도 모두 소중합니다. <br>
+                중요한 것은 감정을 적절히 표현하고 건강하게 다루는 것입니다.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

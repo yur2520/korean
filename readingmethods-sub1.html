@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>등장인물 지도 그리기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <style>
+        /* 동화책 느낌의 'Gowun Dodum' 폰트를 기본으로 설정합니다. */
+        body {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        /* 섹션 제목에 귀여운 아이콘을 추가하기 위한 스타일 */
+        .section-title::before {
+            content: '🎨';
+            margin-right: 10px;
+        }
+        .section-title-2::before {
+            content: '🃏';
+            margin-right: 10px;
+        }
+        .section-title-3::before {
+            content: '🎬';
+            margin-right: 10px;
+        }
+        /* 리스트 아이템에 귀여운 불릿을 추가합니다. */
+        .custom-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        .custom-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #fbbf24; /* amber-400 */
+        }
+    </style>
+</head>
+<body class="bg-sky-50 text-gray-800">
+
+    <!-- 전체 페이지 컨테이너 -->
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <!-- 페이지 제목 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-sky-600 mb-2">등장인물 지도 그리기</h1>
+            <p class="text-lg text-gray-600">내 손으로 직접 만드는 이야기의 핵심 요소</p>
+        </header>
+
+        <!-- 메인 콘텐츠 영역 -->
+        <main class="space-y-12">
+
+            <!-- 1. 인물 관계도 만들기 섹션 -->
+            <section class="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold mb-6 text-sky-700 section-title">인물 관계도 만들기</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- 인물 관계도 일러스트 -->
+                    <div class="flex justify-center items-center p-4 bg-sky-100 rounded-xl">
+                        <svg class="w-full h-auto max-w-xs" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#4a5568" font-family="Gowun Dodum, sans-serif" font-size="10" text-anchor="middle">
+                                <!-- 주인공 -->
+                                <circle cx="100" cy="40" r="20" fill="#60a5fa"/>
+                                <text x="100" y="44" fill="white">주인공</text>
+                                <!-- 친구 -->
+                                <circle cx="40" cy="110" r="18" fill="#4ade80"/>
+                                <text x="40" y="114" fill="white">친구</text>
+                                <!-- 라이벌 -->
+                                <circle cx="160" cy="110" r="18" fill="#f87171"/>
+                                <text x="160" y="114" fill="white">라이벌</text>
+                                <!-- 관계선 -->
+                                <path d="M90,58 Q70,80 50,100" stroke="#34d399" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+                                <path d="M110,58 Q130,80 150,100" stroke="#ef4444" stroke-width="2" fill="none"/>
+                                <path d="M58,115 Q100,125 142,115" stroke="#a5b4fc" stroke-width="2" fill="none"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-sky-800">준비물: 종이, 색연필 또는 펜 🎨</h3>
+                        <h3 class="text-xl font-semibold mt-4 mb-3 text-sky-800">단계별 방법</h3>
+                        <ul class="space-y-2 custom-list">
+                            <li><strong>주인공을 중심에 그리기:</strong> 동그라미나 네모 안에 주인공 이름을 적고 중앙에 배치해요.</li>
+                            <li><strong>다른 인물들 배치하기:</strong> 주인공 주변에 다른 등장인물들을 그려 넣어요.</li>
+                            <li><strong>관계 표시하기:</strong> 인물들 사이를 선으로 연결하고 '가족', '라이벌'처럼 관계를 적어요.</li>
+                            <li><strong>색깔로 구분하기:</strong> 가족은 파란색, 친구는 초록색, 적은 빨간색 등 색을 다르게 칠해요.</li>
+                            <li><strong>화살표로 마음 표현하기:</strong> A가 B를 좋아하는 마음을 화살표(A → B)로 표시할 수 있어요.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 캐릭터 소개 카드 만들기 섹션 -->
+            <section class="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold mb-6 text-amber-700 section-title-2">캐릭터 소개 카드 만들기</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-amber-800">준비물: 카드 종이, 색연필 🃏</h3>
+                        <h3 class="text-xl font-semibold mt-4 mb-3 text-amber-800">카드에 포함할 내용</h3>
+                        <ul class="space-y-2 custom-list">
+                            <li><strong>이름, 나이/직업:</strong> 캐릭터의 기본 정보를 적어요.</li>
+                            <li><strong>외모:</strong> 간단한 그림이나 특징(키, 머리색)을 적어요.</li>
+                            <li><strong>성격:</strong> 3~4가지 특징(용감함, 친절함)을 적어요.</li>
+                            <li><strong>중요한 역할:</strong> 이야기에서 어떤 역할을 하는지 적어요.</li>
+                            <li><strong>특별한 점:</strong> 특별한 능력이나 비밀을 적어봐요.</li>
+                        </ul>
+                        <h3 class="text-xl font-semibold mt-4 mb-3 text-amber-800">활용법</h3>
+                        <p>카드를 모아 캐릭터 도감을 만들거나, 친구와 캐릭터 맞추기 게임을 해보세요!</p>
+                    </div>
+                    <!-- 캐릭터 카드 일러스트 -->
+                    <div class="flex justify-center items-center p-4 bg-amber-100 rounded-xl">
+                       <div class="w-full max-w-xs bg-white rounded-lg shadow-md p-4 border-2 border-amber-300 transform -rotate-6">
+                           <div class="text-center">
+                               <div class="w-16 h-16 bg-amber-200 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                   <svg class="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                               </div>
+                               <h4 class="font-bold text-lg">캐릭터 이름</h4>
+                               <p class="text-sm text-gray-600">12세 / 학생</p>
+                               <p class="text-xs mt-2">#용감함 #호기심 많음</p>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 북 트레일러 스크립트 만들기 섹션 -->
+            <section class="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
+                <h2 class="text-3xl font-bold mb-6 text-emerald-700 section-title-3">북 트레일러 스크립트 만들기</h2>
+                
+                <p class="mb-6">북 트레일러는 영화 예고편처럼 책을 소개하는 짧은 영상이에요. 스크립트는 그 영상의 대본이랍니다. 책의 재미있는 부분을 보여주면서 사람들이 읽고 싶게 만드는 것이 목적이에요.</p>
+
+                <h3 class="text-xl font-semibold mb-3 text-emerald-800">스크립트 구성</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-center mb-6">
+                    <div class="bg-emerald-100 p-4 rounded-lg">
+                        <h4 class="font-bold">1. 도입 (10-15초)</h4>
+                        <p class="text-sm">흥미로운 질문 던지기</p>
+                    </div>
+                    <div class="bg-emerald-100 p-4 rounded-lg">
+                        <h4 class="font-bold">2. 중간 (20-30초)</h4>
+                        <p class="text-sm">인물 소개, 갈등 암시</p>
+                    </div>
+                    <div class="bg-emerald-100 p-4 rounded-lg">
+                        <h4 class="font-bold">3. 마무리 (10-15초)</h4>
+                        <p class="text-sm">궁금증 유발, 책 권유</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-emerald-800">스크립트 작성 예시: "해리포터와 마법사의 돌"</h3>
+                <div class="bg-gray-100 p-6 rounded-lg italic text-gray-700 border-l-4 border-emerald-400">
+                    <p><strong>[장면 1 / 나레이션]</strong> "평범한 11살 소년 해리포터... 하지만 그는 사실 마법사였습니다!" (호그와트 편지를 받는 장면)</p>
+                    <p><strong>[장면 2 / 나레이션]</strong> "새로운 친구들과 함께 마법 세계의 모험이 시작되는데... 위험한 적이 그를 노리고 있었습니다!" (론, 헤르미온느와 함께하는 모습과 긴장감 있는 음악)</p>
+                    <p><strong>[마지막 장면 / 나레이션]</strong> "해리는 과연 이 위험을 헤쳐나갈 수 있을까요? 지금 바로 '해리포터와 마법사의 돌'을 읽어보세요!"</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-3 text-emerald-800">12세 학생들을 위한 팁!</h3>
+                <ul class="space-y-2 custom-list">
+                    <li>영상은 1분 내외로 짧게 만들어요.</li>
+                    <li>결말은 절대 말하지 않기! (스포일러 금지)</li>
+                    <li>직접 연기하거나 그림으로 표현하면 더 재미있어요.</li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- 페이지 하단 -->
+        <footer class="text-center mt-12 py-6 border-t border-sky-200">
+            <p class="text-gray-500"></p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

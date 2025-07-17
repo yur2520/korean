@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>겪은 일을 글로 쓰는 요령</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+       
+        /* SUITE Variable 폰트 (로컬 파일) */
+        @font-face {
+            font-family: 'SUITE Variable';
+            font-weight: 300 900;
+           
+            src: url('./SUITE-Variable.woff2') format('woff2-variations');
+        }
+      
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+        }
+        /* 리스트 스타일 커스텀 */
+        .custom-list li {
+            position: relative;
+            padding-left: 1.5rem; /* 아이콘을 위한 공간 (pl-6) */
+            margin-bottom: 0.5rem;
+        }
+        .custom-list li::before {
+            content: '✓'; /* 체크 아이콘 */
+            position: absolute;
+            left: 0;
+            color: #34D399; /* 에메랄드 색상 */
+            font-weight: bold;
+        }
+        /* 스크롤바 스타일링 (모달용) */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 전체 페이지 컨테이너 -->
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+
+        <!-- 헤더 -->
+        <header class="text-center mb-10 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">겪은 일을 글로 쓰는 요령</h1>
+            <p class="text-lg text-gray-600">여러분의 소중한 경험을 생생한 이야기로 만들어보세요.</p>
+        </header>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="space-y-8">
+
+            <!-- 1. 쓸거리 찾기 -->
+            <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-4">1. 쓸거리 찾기</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8">
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mt-4 mb-2">일상 속 경험 중 읽는 이가 관심을 보일 만한 경험 찾기</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>친구와의 대화, 가족과의 시간</li>
+                            <li>학교에서 있었던 일, 동아리 활동</li>
+                            <li>처음 해본 일, 실패한 경험</li>
+                            <li>계절의 변화, 날씨에 따른 기분</li>
+                            <li>책을 읽거나 영화를 본 후의 느낌</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mt-4 mb-2">기억을 되살리는 방법</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>사진이나 일기장을 뒤져보기</li>
+                            <li>가족이나 친구와 함께 했던 일 떠올리기</li>
+                            <li>감정에 따른 기억 떠올려 보기</li>
+                        </ul>
+                        <div class="mt-6 pl-6">
+                            <button id="openModalBtn" class="bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg">
+                                감정 사전 참고하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 글쓰기 전 준비하기 -->
+            <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-2xl font-bold mb-4 border-l-4 border-green-500 pl-4">2. 글쓰기 전 준비하기</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mt-4 mb-2">육하원칙으로 정리하기</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li><strong>언제:</strong> 정확한 시간보다는 상황과 분위기가 중요</li>
+                            <li><strong>어디서:</strong> 장소의 특징과 느낌까지 포함</li>
+                            <li><strong>누가:</strong> 등장인물들의 관계와 특징</li>
+                            <li><strong>무엇을:</strong> 구체적인 사건의 내용</li>
+                            <li><strong>왜:</strong> 그 일이 일어난 이유나 배경</li>
+                            <li><strong>어떻게:</strong> 일이 진행된 과정</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mt-4 mb-2">감정과 생각 정리하기</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>그때 느꼈던 감정을 솔직하게 써보기</li>
+                            <li>지금 돌이켜봤을 때의 생각과 비교하기</li>
+                            <li>그 경험이 나에게 준 의미 생각해보기</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 글의 구성 -->
+            <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-2xl font-bold mb-4 border-l-4 border-purple-500 pl-4">3. 글을 구성하기</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">도입부: 독자의 관심 끌기</h3>
+                        <p class="text-gray-600">가장 인상적인 순간, 대화, 행동, 또는 궁금증을 유발하는 질문으로 시작하세요.</p>
+                        <blockquote class="mt-2 p-3 bg-purple-50 border-l-4 border-purple-300 text-purple-800 rounded-r-lg">
+                            <strong>예시:</strong> "그날 아침, 엄마가 평소와 다른 목소리로 나를 깨웠다."
+                        </blockquote>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">전개부: 사건의 전개</h3>
+                        <p class="text-gray-600">시간 순서대로, 중요한 부분은 자세히, 대화와 행동을 섞어 생생하게 표현합니다.</p>
+                        <p class="text-gray-600">사건이 어떻게 전개되었고, 어떻게 해결되었는지가 드러나야 합니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">마무리: 깨달음과 의미</h3>
+                        <p class="text-gray-600">경험을 통해 느낀 점, 달라진 생각, 읽는 이에게 전하고 싶은 생각을 담아 마무리합니다.</p>
+                        <p class="text-gray-600">결말을 통해 말하고자 하는 주제(읽는 이에게 전하고 싶은 것)이 잘 드러나야 합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 생생하게 쓰는 기법 -->
+            <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-2xl font-bold mb-4 border-l-4 border-red-500 pl-4">4. 생생하게 쓰는 기법</h2>
+                <h3 class="text-lg font-semibold text-gray-700 mt-4 mb-2">오감을 활용하기</h3>
+                <p class="text-gray-600 mb-2">시각, 청각, 촉각, 후각, 미각을 모두 사용하여 독자가 장면에 있는 것처럼 느끼게 하세요.</p>
+                <blockquote class="mt-2 p-3 bg-red-50 border-l-4 border-red-300 text-red-800 rounded-r-lg">
+                    <strong>예시:</strong> 따뜻한 햇살이 창문을 통해 들어와 책상 위를 비추고 있었다. 보글거리는 소리도 희미하게 들려왔다. 코끝을 스치는 구수한 냄새 덕분에, 엄마가 된장찌개를 끓이고 계신다는 것을 알아챌 수 있었다.
+                </blockquote>
+                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-2">구체적인 표현 사용하기</h3>
+                <p class="text-gray-600 mb-2">모호한 표현 대신 구체적인 묘사, 숫자, 고유명사, 비유를 활용하세요.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                    <div class="p-3 bg-gray-100 rounded-lg">
+                        <p class="font-semibold text-gray-500">모호한 표현</p>
+                        <p>"많은 사람들이 있었다" <span class="text-red-500 font-bold ml-2">✗</span></p>
+                    </div>
+                    <div class="p-3 bg-green-100 rounded-lg">
+                        <p class="font-semibold text-green-800">구체적인 표현</p>
+                        <p>"운동장에 300명이 넘는 학생들이 모여 있었다"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 자주 하는 실수와 개선 방법 -->
+            <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-2xl font-bold mb-4 border-l-4 border-yellow-500 pl-4">5. 자주 하는 실수와 개선 방법</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">실수 1: 단순한 일기 나열</h3>
+                        <p class="text-gray-600"><strong class="text-red-600">문제:</strong> 서율이는 아침에 일어났다. 밥을 먹었다. 그리고 학교에 갔다. <span class="text-red-500 font-bold ml-2">✗</span></p>
+                        <p class="text-gray-600"><strong class="text-green-600">개선:</strong> 중요한 순간에 집중하여 자세히 쓰기</p>
+                        <!--<p class="text-gray-600"><strong class="text-blue-600">고친 예:</strong> 그 날 아침, 서율이는 교실 문을 열자마자 분위기가 평소와는 다르다는 걸 알 수 있었다.</p>-->
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">실수 2: 단순한 감정만 씀.</h3>
+                        <p class="text-gray-600"><strong class="text-red-600">문제:</strong> 너무 기뻤다. <span class="text-red-500 font-bold ml-2">✗</span></p>
+                        <p class="text-gray-600"><strong class="text-green-600">개선:</strong> 왜 그런 감정을 느꼈는지 구체적인 이유와 상황 설명하기</p>
+                        <!--<p class="text-gray-600"><strong class="text-blue-600">고친 예:</strong> 우리가 우승이라니! 믿을 수 없었지만 분명히 사실이었다. 너무 기뻐서 일 분 일 초라도 빨리 이 소식을 반 친구들에게 전하고 싶었다. 나는 있는 힘껏 땅을 박차고 뛰어나갔다.</p>-->
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">실수 3: 결론 급하게 맺기</h3>
+                        <p class="text-gray-600"><strong class="text-red-600">문제:</strong> 그래서 행복하게 살았다. 끝. <span class="text-red-500 font-bold ml-2">✗</span></p>
+                        <p class="text-gray-600"><strong class="text-green-600">개선:</strong> 그 경험이 등장인물에게 어떤 변화를 가져다주었는지 구체적으로 풀어서 쓰기</p>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">실수 4: 나만 아는 이야기</h3>
+                        <p class="text-gray-600"><strong class="text-red-600">문제:</strong> 어제 게임을 하다가 픽5성 코코아를 써서 다이아가 됐다. <span class="text-red-500 font-bold ml-2">✗</span></p>
+                        <p class="text-gray-600"><strong class="text-green-600">개선:</strong> 모두가 이해할 수 있는 단어를 사용하기, 바꿀 수 없는 단어라면 정확하게 무엇인지 설명하거나 표현을 바꾸기</p>
+                        
+                    </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">실수 5: 간단한 설명만 나열</h3>
+                        <p class="text-gray-600"><strong class="text-red-600">문제:</strong> 지현이는 하지 말라고 했다. 서율이는 알았다고 했다. 그리고 각자 수업하러 교실에 들어갔다. <span class="text-red-500 font-bold ml-2">✗</span></p>
+                        <p class="text-gray-600"><strong class="text-green-600">개선:</strong> 대화와 표정 등을 묘사하며 쓰기</p>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. 글쓰기 단계별 점검표 -->
+            <section class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h2 class="text-2xl font-bold mb-4 border-l-4 border-indigo-500 pl-4">6. 글쓰기 단계별 점검표</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">1단계: 소재 선택</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>내가 실제로 겪은 일인가?</li>
+                            <li>다른 사람에게도 흥미로울 만한 일인가?</li>
+                            <li>그 경험에서 배우거나 느낀 점이 있는가?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">2단계: 구성 계획</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>도입-전개-마무리 구조가 명확한가?</li>
+                            <li>가장 중요한 부분과 문단 구분이 드러나 있는가?</li>
+                            <li>시간의 흐름이 자연스러운가?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">3단계: 표현 점검</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>오감을 활용한 묘사가 있는가?</li>
+                            <li>구체적이고 생생한 표현을 사용했는가?</li>
+                            <li>대화가 자연스럽게 들어갔는가?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">4단계: 마무리 점검</h3>
+                        <ul class="space-y-1 text-gray-600 custom-list">
+                            <li>읽는 사람이 이해하기 쉬운가?</li>
+                            <li>내가 전하고자 하는 메시지가 명확한가?</li>
+                            <li>맞춤법과 문법이 옳은가?</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 푸터 -->
+        <footer class="text-center mt-12 py-6 border-t">
+            <p class="text-gray-500">살펴본 내용을 참고해서 나만의 이야기를 완성해봅시다.</p>
+        </footer>
+
+    </div>
+    
+    <!-- 감정 사전 Modal -->
+    <div id="emotionModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50 transition-opacity duration-300">
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] relative modal-content overflow-y-auto">
+            <!-- 닫기 버튼 -->
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">감정 사전</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
+                <div>
+                    <h3 class="font-semibold text-xl text-green-600 mb-3">긍정적 감정 😊</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>기쁨</li><li>희열</li><li>환희</li><li>감격</li><li>감동</li>
+                        <li>만족</li><li>안도</li><li>평온</li><li>자신감</li><li>자부심</li>
+                        <li>뿌듯함</li><li>설렘</li><li>기대감</li><li>흥미</li><li>호기심</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl text-red-600 mb-3">부정적 감정 😥</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>슬픔</li><li>비통</li><li>우울</li><li>절망</li><li>좌절</li>
+                        <li>분노</li><li>노여움</li><li>증오</li><li>억울함</li><li>서러움</li>
+                        <li>불안</li><li>공포</li><li>두려움</li><li>초조</li><li>당황</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl text-blue-600 mb-3">복합적 감정 🤔</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>그리움</li><li>아쉬움</li><li>씁쓸함</li><li>허탈함</li><li>허무함</li>
+                        <li>외로움</li><li>고독</li><li>무료함</li><li>따분함</li><li>후회</li>
+                        <li>죄책감</li><li>부끄러움</li><li>질투</li><li>시기</li><li>놀라움</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 자세히 보기 버튼 추가 -->
+            <div class="mt-8 text-center">
+                <a href="emotion-dictionary.html" class="inline-block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+                    감정 사전 자세히 보기
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const emotionModal = document.getElementById('emotionModal');
+
+        // 모달 열기
+        openModalBtn.addEventListener('click', () => {
+            emotionModal.classList.remove('hidden');
+        });
+
+        // 닫기 버튼으로 모달 닫기
+        closeModalBtn.addEventListener('click', () => {
+            emotionModal.classList.add('hidden');
+        });
+
+        // 모달 바깥 영역 클릭 시 닫기
+        emotionModal.addEventListener('click', (event) => {
+            // event.target이 모달의 배경(overlay)일 경우에만 닫힘
+            if (event.target === emotionModal) {
+                emotionModal.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
