@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학급 단체 채팅방 문제 상황 시나리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* 스크롤바 디자인 */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .sidebar-text.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen antialiased text-gray-800">
+        <div class="flex flex-row h-full w-full overflow-x-hidden">
+            <div id="sidebar" class="relative flex flex-col py-8 px-4 bg-white flex-shrink-0 w-64 transition-all duration-300 ease-in-out">
+                <div class="flex flex-row items-center justify-center h-12 w-full">
+                    <div class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-2 font-bold text-2xl sidebar-text">5학년 누리소통방</div>
+                </div>
+                
+                <div class="flex flex-col mt-8">
+                    <div class="flex flex-col space-y-1 -mx-2 h-full custom-scrollbar overflow-y-auto">
+                        <button id="btn-1-A" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">1</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">시험 기간 중 이모티콘 도배</span>
+                        </button>
+                        <button id="btn-1-B" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">2</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">체육대회 우승 후 흥분 상태</span>
+                        </button>
+                        <button id="btn-2-A" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">3</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">모둠 숙제 관련 불만</span>
+                        </button>
+                        <button id="btn-2-B" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">4</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">외모/행동 조롱</span>
+                        </button>
+                        <button id="btn-3-A" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                           <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">5</span>
+                           <span class="ml-3 text-sm font-semibold text-left sidebar-text">말한 의도가 전달되지 않음</span>
+                        </button>
+                        <button id="btn-3-B" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">6</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">간결한 답변의 오해</span>
+                        </button>
+                        <button id="btn-4-A" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">7</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">숙제 시간 중 갑작스러운 초대</span>
+                        </button>
+                        <button id="btn-4-B" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">8</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">가족 시간 중 친구들의 긴급(?) 대화</span>
+                        </button>
+                         <button id="btn-9" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">9</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">줄임말로 인한 오해</span>
+                        </button>
+                        <button id="btn-10" class="scenario-button flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+                            <span class="flex items-center justify-center bg-indigo-100 text-indigo-700 rounded-full h-6 w-6 text-sm font-bold">10</span>
+                            <span class="ml-3 text-sm font-semibold text-left sidebar-text">상태 메시지 공격</span>
+                        </button>
+                    </div>
+                </div>
+                 <button id="sidebar-toggle" class="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 bg-indigo-500 hover:bg-indigo-600 text-white w-8 h-20 rounded-full flex items-center justify-center focus:outline-none">
+                    <svg id="toggle-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col flex-auto h-full p-6">
+                <div id="chat-container" class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-200 h-full p-4">
+                    <div id="chat-header" class="flex flex-col items-center bg-white rounded-xl p-3 mb-4 shadow-sm">
+                        <h1 id="scenario-title" class="text-xl font-bold text-gray-700"></h1>
+                        <p id="scenario-background" class="text-sm text-gray-500 mt-1"></p>
+                    </div>
+                    <div id="message-container" class="flex flex-col h-full overflow-y-auto mb-4 custom-scrollbar">
+                        <div id="message-grid" class="grid grid-cols-12 gap-y-2">
+                           </div>
+                    </div>
+                </div>
+                
+                <div id="profile-container" class="hidden h-full overflow-y-auto custom-scrollbar">
+                    <div class="max-w-5xl mx-auto">
+                        <div class="text-center mb-8">
+                            <h1 class="text-2xl font-bold text-gray-800">상태 메시지를 통한 간접 공격</h1>
+                            <p class="text-gray-500 mt-2">두 학생의 프로필 상태 메시지가 시간이 지남에 따라 어떻게 변하는지 살펴보세요.</p>
+                        </div>
+                
+                        <div class="flex flex-wrap justify-center items-start gap-8">
+                
+                            <div class="w-full max-w-xs bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                                <div class="relative">
+                                    <div class="h-48 bg-purple-100">
+                                        <img src="profile5.jpg" 
+                                             onerror="this.onerror=null;this.src='https://placehold.co/400x300/E9D5FF/3730A3?text=배경';"
+                                             class="w-full h-full object-cover" alt="수연 배경 이미지">
+                                    </div>
+                                    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
+                                         <img src="profile2.jpg" 
+                                              onerror="this.onerror=null;this.src='https://placehold.co/150x150/FBCFE8/86198F?text=수연';"
+                                              class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md" alt="수연 프로필 사진">
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-16 pb-6 px-6 text-center">
+                                    <h2 class="text-2xl font-bold text-gray-800">수연</h2>
+                                    <p class="text-gray-600 mt-2 text-lg h-16">도움 안 주면서 친구인 척하는 사람들...</p>
+                                </div>
+                
+                                <div class="flex-grow p-6 pt-0">
+                                    <h3 class="font-semibold text-gray-600 mb-4 border-t pt-4">과거 변경 기록</h3>
+                                    <div class="space-y-3">
+                                        <div class="p-3 rounded-lg bg-slate-50">
+                                            <p class="text-gray-700 text-sm">겉과 속이 다른 사람들과는 거리두기 중</p>
+                                            <p class="text-right text-xs text-gray-400 mt-1">2일 전</p>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-slate-50">
+                                            <p class="text-gray-700 text-sm">뒤에서 나쁘게 말하는 사람들이 제일 무서워 ㅠㅠ</p>
+                                            <p class="text-right text-xs text-gray-400 mt-1">3일 전</p>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-slate-50">
+                                            <p class="text-gray-700 text-sm">진짜 친구는 새 친구 생겨도 변하지 않는 법인데...</p>
+                                            <p class="text-right text-xs text-gray-400 mt-1">4일 전</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="w-full max-w-xs bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                                <div class="relative">
+                                    <div class="h-48 bg-emerald-100">
+                                         <img src="profile4.jpg"
+                                              onerror="this.onerror=null;this.src='https://placehold.co/400x300/D1FAE5/065F46?text=배경';"
+                                              class="w-full h-full object-cover" alt="민지 배경 이미지">
+                                    </div>
+                                     <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
+                                        <img src="profile1.jpg"
+                                             onerror="this.onerror=null;this.src='https://placehold.co/150x150/BAE6FD/0C4A6E?text=민지';"
+                                             class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md" alt="민지 프로필 사진">
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-16 pb-6 px-6 text-center">
+                                    <h2 class="text-2xl font-bold text-gray-800">민지</h2>
+                                    <p class="text-gray-600 mt-2 text-lg h-16">이용만 당하다가 버려지는 기분 알죠?</p>
+                                </div>
+                
+                                 <div class="flex-grow p-6 pt-0">
+                                    <h3 class="font-semibold text-gray-600 mb-4 border-t pt-4">과거 변경 기록</h3>
+                                    <div class="space-y-3">
+                                        <div class="p-3 rounded-lg bg-slate-50">
+                                            <p class="text-gray-700 text-sm">독점욕 강한 사람들은 정말 피곤해</p>
+                                            <p class="text-right text-xs text-gray-400 mt-1">2일 전</p>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-slate-50">
+                                            <p class="text-gray-700 text-sm">과거에 매달리지 말고 새로운 인연도 받아들이자</p>
+                                            <p class="text-right text-xs text-gray-400 mt-1">3일 전</p>
+                                        </div>
+                                        <div class="p-3 rounded-lg bg-slate-50">
+                                            <p class="text-gray-700 text-sm">집착하는 친구 때문에 스트레스 받는 중... 숨 막혀</p>
+                                            <p class="text-right text-xs text-gray-400 mt-1">4일 전</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 시나리오 데이터 (생략 - 이전 코드와 동일)
+        const scenarios = {
+            '1-A': { title: '시험 기간 중 이모티콘 도배', background: '배경: 단원평가 일주일 전, 5학년 2반 단체 채팅방', participants: ['김민수', '이지영', '박준호', '최은지', '정수현'], messages: [ { sender: '김민수', time: '20:28', content: '내일 수학 시험 범위 어디까지였지?', me: true }, { sender: '이지영', time: '20:29', content: '교과서 57페이지까지!' }, { sender: '박준호', time: '20:30', content: '🎉🎉🎉🎉🎉', type: 'sticker' }, { sender: '박준호', time: '20:30', content: '🎉🎉🎉🎉🎉', type: 'sticker' }, { sender: '박준호', time: '20:30', content: '🎉🎉🎉🎉🎉', type: 'sticker' }, { sender: '최은지', time: '20:30', content: '💯💯💯💯💯💯💯💯', type: 'sticker' }, { sender: '최은지', time: '20:30', content: '💯💯💯💯💯💯💯💯💯💯💯💯💯', type: 'sticker' }, { sender: '박준호', time: '20:30', content: 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ' }, { sender: '최은지', time: '20:30', content: '🙌🙌🙌🙌🙌🙌🙌', type: 'sticker' }, { sender: '박준호', time: '20:31', content: '🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀', type: 'sticker' }, { sender: '최은지', time: '20:31', content: '100 100 100 100 100 100 100 100 100 100' }, { sender: '정수현', time: '20:31', content: '야 그만해라 진짜' }, { sender: '김민수', time: '20:31', content: '어 잠깐 57페이지까지면 분수의 곱셈도 포함인가?', me: true }, { sender: '박준호', time: '20:31', content: '🎊', type: 'sticker' }, { sender: '박준호', time: '20:31', content: '🎊', type: 'sticker' }, { sender: '박준호', time: '20:31', content: '🎊', type: 'sticker' }, { sender: '최은지', time: '20:32', content: '✨', type: 'sticker' }, { sender: '최은지', time: '20:32', content: '✨', type: 'sticker' }, { sender: '최은지', time: '20:32', content: '✨', type: 'sticker' }, { sender: '이지영', time: '20:32', content: '분수 곱셈은 빠져! 소수 나눗셈까지만' }, { sender: '박준호', time: '20:32', content: '🥳', type: 'sticker' }, { sender: '정수현', time: '20:32', content: '야 진짜 그만 좀 해 짜증나' }, { sender: '최은지', time: '20:33', content: '왜 이렇게 예민해 ㅋㅋ' }, { sender: '김민수', time: '20:33', content: '중요한 얘기가 다 묻혀버리잖아', me: true }, { sender: '박준호', time: '20:33', content: '🤪', type: 'sticker' }, { sender: '박준호', time: '20:33', content: '🤪', type: 'sticker' }, { sender: '박준호', time: '20:33', content: '🤪', type: 'sticker' }, { sender: '박준호', time: '20:33', content: '🤪', type: 'sticker' }, { sender: '정수현', time: '20:34', content: '알림 끄고 싶은데 중요한 공지 놓칠까봐 못 끄겠어 진짜' }, ] },
+            '1-B': { title: '체육대회 우승 후 흥분 상태', background: '배경: 체육대회에서 우승한 직후, 5학년 1반 단체 채팅방', participants: ['조민재', '최민하', '김태현', '반장 이서준', '강민아'], messages: [ { sender: '조민재', time: '16:15', content: '우리가 이겼다!!!!!!' }, { sender: '최민하', time: '16:15', content: '🏆', type: 'sticker' }, { sender: '김태현', time: '16:15', content: '🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇', type: 'sticker' }, { sender: '최민하', time: '16:15', content: '🎉', type: 'sticker' }, { sender: '조민재', time: '16:16', content: '🎊', type: 'sticker' }, { sender: '김태현', time: '16:16', content: '🥳', type: 'sticker' }, { sender: '최민하', time: '16:16', content: '🙌', type: 'sticker' }, { sender: '조민재', time: '16:16', content: '🚀', type: 'sticker' }, { sender: '김태현', time: '16:16', content: '💯', type: 'sticker' }, { sender: '반장 이서준', time: '16:17', content: '잠깐! 중요한 공지 있어요', me: true }, { sender: '최민하', time: '16:17', content: '😎', type: 'sticker' }, { sender: '조민재', time: '16:17', content: '🤩', type: 'sticker' }, { sender: '반장 이서준', time: '16:17', content: '내일 체육복 빨아서 가져와야 해요', me: true }, { sender: '김태현', time: '16:17', content: '😂😂😂😂', type: 'sticker' }, { sender: '최민하', time: '16:15', content: '🎉🎉🎉🎉🎉🎉', type: 'sticker' }, { sender: '조민재', time: '16:16', content: '🎊🎊🎊🎊🎊🎊🎊🎊', type: 'sticker' }, { sender: '김태현', time: '16:16', content: '🥳🥳🥳🥳🥳', type: 'sticker' }, { sender: '최민하', time: '16:16', content: '🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌', type: 'sticker' }, { sender: '강민아', time: '16:18', content: '공지가 안 보여... 뭐라고 했어?' }, { sender: '최민하', time: '16:18', content: '😜', type: 'sticker' }, { sender: '반장 이서준', time: '16:18', content: '이모티콘 좀 그만하고 공지 확인 부탁드려요', me: true }, ] },
+            '2-A': { title: '모둠 숙제 관련 불만', background: '배경: 5학년 3반, 사회과 모둠숙제 마감 하루 전', participants: ['김하늘', '박세영', '최윤서', '이지민'], messages: [ { sender: '김하늘', time: '21:02', content: '진짜 화난다', me: true }, { sender: '박세영', time: '21:02', content: '왜?' }, { sender: '김하늘', time: '21:03', content: '지민이 때문에 미치겠어', me: true }, { sender: '최윤서', time: '21:03', content: '또 뭔 일이야' }, { sender: '김하늘', time: '21:03', content: '숙제 맡은 부분 아직도 안 했대', me: true }, { sender: '박세영', time: '21:04', content: '헐 내일이 내는 날인데?' }, { sender: '김하늘', time: '21:04', content: '맨날 이래 진짜 짜증나', me: true }, { sender: '최윤서', time: '21:04', content: '지민이가 맨날 이런 식이지' }, { sender: '김하늘', time: '21:05', content: '발표 준비도 우리가 다 했잖아', me: true }, { sender: '박세영', time: '21:05', content: '맞아 자기는 맨날 놀기만 하고' }, { sender: '최윤서', time: '21:05', content: '모둠 정할 때부터 느낌이 안 좋았어' }, { sender: '김하늘', time: '21:06', content: '책임감이 1도 없어 진짜', me: true }, { sender: '박세영', time: '21:06', content: '담에는 절대 같은 모둠 안 할래' }, { sender: '이지민', time: '21:07', content: '미안 지금 봤어' }, { sender: '김하늘', time: '21:07', content: '지금 봤다고? 하루 종일 카톡 확인 안 했어?', me: true }, { sender: '이지민', time: '21:08', content: '아니야 확인했는데... 바빴어' }, { sender: '최윤서', time: '21:08', content: '맨날 바쁘다는 핑계만' }, { sender: '이지민', time: '21:08', content: '핑계가 아니라 정말 바빴다고' }, { sender: '김하늘', time: '21:09', content: '그럼 우리는 안 바빠? 우리만 죽어라 하고 있어', me: true }, ] },
+            '2-B': { title: '외모/행동 조롱', background: '배경: 5학년 4반, 발표 수업이 끝난 후', participants: ['송하연', '김예린', '임채원', '한수빈'], messages: [ { sender: '송하연', time: '14:41', content: '오늘 수빈이 발표 봤지?' }, { sender: '김예린', time: '14:41', content: '어 봤어 왜?' }, { sender: '송하연', time: '14:42', content: '목소리 개떨렸어 ㅋㅋㅋㅋ' }, { sender: '임채원', time: '14:42', content: '아 나도 그거 봤어 ㅋㅋㅋ' }, { sender: '김예린', time: '14:42', content: '완전 벌벌 떨던데' }, { sender: '송하연', time: '14:43', content: '손도 막 떨고 ㅋㅋㅋㅋ 웃겼어' }, { sender: '임채원', time: '14:43', content: '그리고 머리 오늘 왜 저렇게 했지?' }, { sender: '김예린', time: '14:43', content: '어? 뭔가 이상했어?' }, { sender: '송하연', time: '14:44', content: '완전 산발이었어 빗질 안 한 것 같았음' }, { sender: '임채원', time: '14:44', content: 'ㅋㅋㅋㅋ 맞아 사진 찍었어' }, { sender: '김예린', time: '14:44', content: '헉 진짜? 보여줘' }, { sender: '송하연', time: '14:45', content: '나도 보고 싶어' }, { sender: '임채원', time: '14:45', content: '[사진 전송]', type: 'system' }, { sender: '송하연', time: '14:45', content: 'ㅋㅋㅋㅋㅋㅋ 대박' }, { sender: '김예린', time: '14:45', content: '이거 완전 웃기네' }, { sender: '한수빈', time: '14:46', content: '뭐 하는 거야 너희들?', me: true }, { sender: '송하연', time: '14:46', content: '어 수빈아 언제 들어왔어?' }, { sender: '한수빈', time: '14:46', content: '처음부터 있었는데... 뭘 보고 웃는 거야?', me: true }, { sender: '김예린', time: '14:47', content: '아 아무것도 아니야' }, { sender: '한수빈', time: '14:47', content: '내 사진 찍은 거 맞지? 삭제해', me: true }, ] },
+            '3-A': { title: '말한 의도가 전달되지 않음', background: '배경: 5학년 1반, 체육 시간 후', participants: ['강민호', '이준혁'], messages: [ { sender: '강민호', time: '16:12', content: '오늘 피구 진짜 재밌었다' }, { sender: '이준혁', time: '16:12', content: '맞아 오랜만에 제대로 뛴 것 같아', me: true }, { sender: '강민호', time: '16:13', content: '준혁아 너 오늘 공 던진 거 대단했어 ㅋㅋ' }, { sender: '이준혁', time: '16:14', content: '??', me: true }, { sender: '이준혁', time: '16:14', content: '뭐가 대단하다는 거야?', me: true }, { sender: '강민호', time: '16:14', content: '어? 진짜 잘했다고 하는 건데' }, { sender: '이준혁', time: '16:15', content: '아 그럼 ㅋㅋ 이게 뭐야? 비웃는 거야?', me: true }, { sender: '강민호', time: '16:15', content: '아니야 진짜 칭찬한 거야' }, { sender: '이준혁', time: '16:15', content: '공 못 던져서 비웃는 거지?', me: true }, { sender: '강민호', time: '16:16', content: '야 진짜 아니라니까 오해야' }, { sender: '이준혁', time: '16:16', content: '공 하나 맞췄다고 뭐가 대단해?', me: true }, { sender: '강민호', time: '16:16', content: '왜 이렇게 나와?' }, { sender: '이준혁', time: '16:17', content: '나한테 뭐 불만 있으면 직접 말해', me: true }, { sender: '강민호', time: '16:17', content: '불만 없어 진짜 칭찬이었다고' }, { sender: '이준혁', time: '16:17', content: 'ㅋㅋ가 칭찬이야?', me: true }, { sender: '강민호', time: '16:18', content: '그냥... 재밌다는 뜻이었는데' }, ] },
+            '3-B': { title: '간결한 답변의 오해', background: '배경: 5학년 2반, 수업 준비물 관련', participants: ['조은비', '김도현', '이민정'], messages: [ { sender: '조은비', time: '19:23', content: '내일 미술 시간에 뭐 가져가야 하지?', me: true }, { sender: '김도현', time: '19:35', content: '색연필' }, { sender: '조은비', time: '19:36', content: '색연필만?', me: true }, { sender: '김도현', time: '19:42', content: '응' }, { sender: '조은비', time: '19:43', content: '크레파스랑 사인펜은?', me: true }, { sender: '김도현', time: '19:55', content: '있으면 가져와' }, { sender: '조은비', time: '19:56', content: '뭔가 기분 나쁘게 말하네', me: true }, { sender: '이민정', time: '19:57', content: '왜? 뭐라고 했는데?' }, { sender: '조은비', time: '19:57', content: '완전 퉁명스럽게 대답해', me: true }, { sender: '조은비', time: '19:58', content: '나한테 뭔가 불만 있나?', me: true }, { sender: '이민정', time: '19:58', content: '그냥 바쁜 거 아닐까?' }, { sender: '조은비', time: '19:59', content: '예전에도 이랬어 차갑게 대답하는 거', me: true }, { sender: '조은비', time: '19:59', content: '나를 싫어하는 것 같아', me: true }, { sender: '김도현', time: '20:15', content: '? 뭘 싫어해?' }, { sender: '조은비', time: '20:15', content: '말투가 너무 차가워', me: true }, { sender: '김도현', time: '20:16', content: '아 미안 게임하면서 답장해서 그래' }, { sender: '조은비', time: '20:16', content: '아... 그런 거였어?', me: true }, ] },
+            '4-A': { title: '숙제 시간 중 갑작스러운 초대', background: '배경: 평가 2주 전', participants: ['김지영', '박현수', '최민지', '이상훈', '정수아', '김태민'], messages: [ { sender: '시스템', time: '20:01', content: '"지수 생일파티 준비" 그룹 채팅방에 초대되었습니다', type: 'system' }, { sender: '김지영', time: '20:02', content: '다들 와줘서 고마워!' }, { sender: '박현수', time: '20:02', content: '지수야 생일축하해!' }, { sender: '최민지', time: '20:03', content: '언제 파티 할 거야?' }, { sender: '김지영', time: '20:03', content: '이번 주 토요일 어때?' }, { sender: '이상훈', time: '20:03', content: '좋아! 몇 시에?' }, { sender: '박현수', time: '20:04', content: '오후 6시부터 어때?' }, { sender: '최민지', time: '20:04', content: '케이크는 누가 준비해?' }, { sender: '김지영', time: '20:04', content: '내가 주문해둘게' }, { sender: '이상훈', time: '20:05', content: '장소는 어디야?' }, { sender: '박현수', time: '20:05', content: '우리집에서 하자' }, { sender: '정수아', time: '20:05', content: '선물은 뭘 사지?' }, { sender: '김태민', time: '20:15', content: '미안 지금 숙제 중이라서 나중에 확인할게', me: true }, { sender: '김지영', time: '20:15', content: '아 미안! 급한 건 아니야' }, { sender: '최민지', time: '20:16', content: '그런데 선물 뭘 사지? 다 같이 모아서 살까?' }, { sender: '이상훈', time: '20:16', content: '좋은 생각이다' }, { sender: '박현수', time: '20:17', content: '얼마씩 낼까?' }, { sender: '정수아', 'time': '20:17', content: '오천원씩?' }, { sender: '김지영', time: '20:18', content: '너무 많은 거 아니야?' }, { sender: '최민지', time: '20:18', content: '그럼 삼천원?' }, { sender: '시스템', time: '20:19', content: '계속해서 알림이 울림...', type: 'system' }, { sender: '김태민', time: '20:35', content: '정말 미안한데 숙제해야 해서 알림 꺼둘게', me: true }, ] },
+            '4-B': { title: '가족 시간 중 친구들의 긴급(?) 대화', background: '배경: 주말 가족 저녁식사 시간', participants: ['한지민', '송민재', '이예진', '박서현'], messages: [ { sender: '시스템', time: '18:22', content: '"내일 준비물 확인" 그룹 채팅방에 초대되었습니다', type: 'system' }, { sender: '한지민', time: '18:23', content: '내일 체육복 가져와야 하는 거 맞지?' }, { sender: '송민재', time: '18:24', content: '응 체육복 가져와야 해' }, { sender: '한지민', time: '18:24', content: '실내화도?' }, { sender: '송민재', time: '18:25', content: '실내화는 원래 학교에 있잖아' }, { sender: '한지민', time: '18:25', content: '아 맞다 깜빡했네' }, { sender: '이예진', time: '18:26', content: '그런데 내일 체육 뭐 해?' }, { sender: '송민재', time: '18:26', content: '티볼 한대' }, { sender: '이예진', time: '18:27', content: '아 티볼 싫어 ㅠㅠ' }, { sender: '한지민', time: '18:27', content: '나도 티볼 못해' }, { sender: '송민재', time: '18:28', content: '할 만해 재밌어' }, { sender: '이예진', time: '18:28', content: '키 작으면 불리해' }, { sender: '한지민', time: '18:29', content: '맞아 우리 키로는...' }, { sender: '송민재', 'time': '18:29', content: '키만 중요한 게 아니야' }, { sender: '박서현', time: '18:45', content: '지금 가족이랑 밥 먹고 있어서 나중에 볼게', me: true }, { sender: '이예진', time: '18:45', content: '아 미안!' }, { sender: '한지민', time: '18:46', content: '그런데 체육복 색깔 정해진 거 있나?' }, { sender: '송민재', time: '18:46', content: '없어 편한 걸로 입어' }, { sender: '이예진', 'time': '18:47', content: '그럼 검은색 입고 갈게' }, { sender: '한지민', 'time': '18:47', content: '나는 흰색!' }, { sender: '송민재', 'time': '18:48', content: '나는 회색으로' }, { sender: '시스템', time: '18:49', content: '계속해서 대화가 이어지며 알림이 계속 울림...', type: 'system' }, ] },
+            '9': { title: '줄임말로 인한 오해', background: '배경: 5학년 5반, 방과 후 수업 확인', participants: ['정주현', '이하준', '박지우'], messages: [ { sender: '정주현', time: '15:23', content: '오늘 방과후 뭐야?', me: true }, { sender: '이하준', time: '15:24', content: 'ㅋㅎ' }, { sender: '정주현', time: '15:24', content: '?? 왜그래?', me: true }, { sender: '박지우', time: '15:25', content: '컴퓨터 활용이라는 거 아님?' }, { sender: '이하준', time: '15:25', content: 'ㅇㅇ' }, { sender: '정주현', time: '15:26', content: '아 그럼 컴퓨터실 가야 하는 거야?', me: true }, { sender: '이하준', time: '15:26', content: 'ㄴㄴ ㄱㅅ' }, { sender: '박지우', time: '15:27', content: '알아듣게말해 ㅡㅡ' }, { sender: '정주현', time: '15:27', content: '뭔 소리야 ㅋㅋ', me: true }, { sender: '이하준', time: '15:28', content: '아 과학실' }, { sender: '정주현', time: '15:28', content: '아아아아 그럼 처음에 그렇게 말하지', me: true }, { sender: '이하준', time: '15:29', content: '귀찮아서 줄여 말한 건데' }, { sender: '박지우', time: '15:29', content: '우리가 무슨 암호 해독기야?' }, { sender: '정주현', time: '15:30', content: '진짜 알아듣기 힘들어', me: true }, ] }
+        };
+
+        const scenarioTitleEl = document.getElementById('scenario-title');
+        const scenarioBackgroundEl = document.getElementById('scenario-background');
+        const messageGridEl = document.getElementById('message-grid');
+        const messageContainerEl = document.getElementById('message-container');
+        const scenarioButtons = document.querySelectorAll('.scenario-button');
+        
+        const chatContainer = document.getElementById('chat-container');
+        const profileContainer = document.getElementById('profile-container');
+        
+        let activeButton = null;
+
+        // 시나리오를 화면에 표시하는 함수 (생략 - 이전 코드와 동일)
+        function displayScenario(scenarioId) {
+            const scenario = scenarios[scenarioId];
+            if (!scenario) return;
+
+            // 헤더 정보 업데이트
+            scenarioTitleEl.textContent = scenario.title;
+            scenarioBackgroundEl.textContent = scenario.background;
+
+            // 이전 메시지 삭제
+            messageGridEl.innerHTML = '';
+
+            // 새 메시지 추가
+            scenario.messages.forEach(msg => {
+                let messageHtml = '';
+
+                // 시스템 메시지 처리
+                if (msg.type === 'system') {
+                    messageHtml = `
+                        <div class="col-start-1 col-end-13 p-3 rounded-lg">
+                            <div class="flex items-center justify-center">
+                                <div class="text-xs text-gray-500 bg-white px-3 py-1 rounded-full shadow-sm">
+                                    ${msg.content}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                // 스티커/이모티콘 메시지 처리
+                else if (msg.type === 'sticker') {
+                     const alignment = msg.me ? 'items-end' : 'items-start';
+                     messageHtml = `
+                        <div class="col-start-1 col-end-13 p-3 rounded-lg">
+                             <div class="flex flex-col ${alignment}">
+                                ${!msg.me ? `<div class="text-xs font-semibold text-gray-600 mb-1">${msg.sender}</div>` : ''}
+                                <div class="flex items-end ${msg.me ? 'flex-row-reverse' : 'flex-row'}">
+                                    <div class="text-4xl">${msg.content}</div>
+                                    <span class="text-xs text-gray-500 ml-2 mr-2">${msg.time}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                // 일반 텍스트 메시지 처리
+                else {
+                    const alignment = msg.me ? 'items-end' : 'items-start';
+                    const bubbleColor = msg.me ? 'bg-indigo-500 text-white' : 'bg-white text-gray-600';
+                    const senderName = msg.me ? '' : `<div class="text-xs font-semibold text-gray-600 mb-1">${msg.sender}</div>`;
+
+                    messageHtml = `
+                        <div class="col-start-1 col-end-13 p-3 rounded-lg">
+                            <div class="flex flex-col ${alignment}">
+                                ${senderName}
+                                <div class="flex items-end ${msg.me ? 'flex-row-reverse' : 'flex-row'}">
+                                    <div class="relative max-w-xs lg:max-w-md px-4 py-2 rounded-lg shadow ${bubbleColor}">
+                                        <p class="text-sm">${msg.content}</p>
+                                    </div>
+                                    <span class="text-xs text-gray-500 ml-2 mr-2">${msg.time}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                messageGridEl.innerHTML += messageHtml;
+            });
+            
+            // 스크롤을 맨 위로 이동
+            messageContainerEl.scrollTop = 0;
+        }
+
+        // 버튼 클릭 이벤트 리스너 설정 (이전 코드와 동일)
+        scenarioButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const scenarioId = button.id.replace('btn-', '');
+                
+                if (activeButton) {
+                    activeButton.classList.remove('bg-indigo-100', 'text-indigo-700');
+                    activeButton.classList.add('hover:bg-gray-100');
+                }
+                button.classList.add('bg-indigo-100', 'text-indigo-700');
+                button.classList.remove('hover:bg-gray-100');
+                activeButton = button;
+                
+                if (scenarioId === '10') {
+                    chatContainer.classList.add('hidden');
+                    profileContainer.classList.remove('hidden');
+                } else {
+                    profileContainer.classList.add('hidden');
+                    chatContainer.classList.remove('hidden');
+                    displayScenario(scenarioId);
+                }
+            });
+        });
+
+        // 페이지 로드 시 첫 번째 시나리오 표시 및 활성화 (이전 코드와 동일)
+        window.addEventListener('load', () => {
+            const firstButton = document.getElementById('btn-1-A');
+            if(firstButton) {
+                firstButton.click();
+            }
+        });
+
+        // 사이드바 토글 로직 (이전 코드와 동일)
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('sidebar-toggle');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const sidebarTexts = document.querySelectorAll('.sidebar-text');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('w-64');
+            sidebar.classList.toggle('w-24'); 
+
+            sidebarTexts.forEach(text => {
+                text.classList.toggle('hidden');
+            });
+
+            if (sidebar.classList.contains('w-24')) {
+                toggleIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>`;
+            } else {
+                toggleIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>`;
+            }
+        });
+    </script>
+
+</body>
+</html>
