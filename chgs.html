@@ -88,6 +88,10 @@
                         </ul>
                     </div>
                 </div>
+                <hr class="my-6 border-gray-200">
+                <button id="showModalBtn" class="w-full bg-orange-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300">
+                    감정의 종류에 따른 표현 예시 살펴보기
+                </button>
             </div>
 
             <!-- 카드 3: 알기 쉽고 정확한 표현 -->
@@ -151,5 +155,92 @@
             </div>
         </main>
     </div>
+
+    <!-- 감정 표현 예시 모달 -->
+    <div id="emotionModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative p-8">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-center text-orange-600">감정별 표현 예시</h2>
+            
+            <div class="space-y-8 text-gray-800">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">1. 기쁨</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"친구와 함께 놀이터에서 그네를 타며 하늘 높이 올라갈 때마다 웃음이 터져 나왔다"</li>
+                        <li>"받아쓰기 시험에서 100점을 받았을 때 가슴이 두근두근하며 입꼬리가 저절로 올라갔다"</li>
+                        <li>"생일날 깜짝 파티를 열어준 가족들을 보며 눈물이 날 만큼 행복했다"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">2. 화남</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"동생이 내 레고 작품을 부쉈을 때 얼굴이 빨갛게 달아오르며 주먹을 꽉 쥐었다"</li>
+                        <li>"친구가 약속을 지키지 않았을 때 가슴속에서 뜨거운 불덩어리가 치밀어 올랐다"</li>
+                        <li>"선생님께 억울하게 혼났을 때 목소리가 떨리며 눈물이 핑 돌았다"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">3. 슬픔</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"기르던 강아지가 죽었을 때 가슴 한가운데가 텅 비어버린 것 같았다"</li>
+                        <li>"친한 친구가 다른 학교로 전학 간다는 소식을 들었을 때 목구멍에 뭔가 꽉 막힌 느낌이었다"</li>
+                        <li>"혼자 집에 있을 때 갑자기 외로워져서 베개에 얼굴을 파묻고 울었다"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">4. 두려움</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"어둠 속에서 이상한 소리가 들렸을 때 온몸의 털이 쭈뼛 서며 심장이 쿵쾅거렸다"</li>
+                        <li>"발표 시간이 다가올 때마다 손바닥에 땀이 나고 다리가 후들후들 떨렸다"</li>
+                        <li>"높은 미끄럼틀 위에 올라갔을 때 아래를 내려다보니 어지럽고 무서워서 꼼짝할 수 없었다"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">5. 부끄러움</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"교실에서 큰 소리로 트림이 나왔을 때 얼굴이 토마토처럼 빨개지며 고개를 숙였다"</li>
+                        <li>"좋아하는 친구 앞에서 말을 더듬었을 때 귀까지 뜨거워지며 땅으로 숨고 싶었다"</li>
+                        <li>"체육시간에 공을 놓쳤을 때 모든 시선이 나를 향하는 것 같아 작아지고 싶었다"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">6. 신남</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"소풍 전날 밤에 잠이 안 와서 이불 속에서 뒤척이며 내일을 상상했다"</li>
+                        <li>"새 게임을 사러 가는 길에 발걸음이 가벼워지고 콧노래가 저절로 나왔다"</li>
+                        <li>"방학 계획을 세울 때 가슴이 벅차오르며 눈이 반짝반짝 빛났다"</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">7. 질투</h3>
+                    <ul class="list-disc list-outside space-y-2 pl-6">
+                        <li>"친구가 새 장난감을 자랑할 때 속에서 씁쓸한 맛이 올라오며 배가 아팠다"</li>
+                        <li>"다른 친구가 선생님께 칭찬받는 모습을 보며 입술을 꽉 깨물었다"</li>
+                        <li>"엄마가 동생만 예뻐해주는 것 같을 때 가슴이 답답하고 화가 났다"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const showModalBtn = document.getElementById('showModalBtn');
+        const modal = document.getElementById('emotionModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        if (showModalBtn && modal && closeModalBtn) {
+            showModalBtn.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
