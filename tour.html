@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="styles.css">
+    <title>체험학습 계획서</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'SUITE Variable', 'Noto Sans KR', sans-serif;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            .print-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+        .placeholder {
+            min-width: 150px;
+            display: inline-block;
+            border-bottom: 1px solid #ccc;
+            padding: 0 4px;
+        }
+        td, th {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto print-container bg-white p-8 sm:p-12 rounded-lg shadow-lg">
+
+        <header class="flex justify-between items-center mb-10 border-b pb-4">
+            <h1 class="text-4xl font-bold text-gray-800">체험학습 계획서</h1>
+            <button onclick="window.print()" class="no-print bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold p-2 rounded-full transition duration-300 ease-in-out">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <!-- 1. 기본 정보 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">1. 기본 정보</h2>
+                <div class="overflow-hidden rounded-lg border border-gray-200">
+                    <table class="w-full">
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">여행 시기</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">목적지</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">참가자</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 2. 교통 계획 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">2. 교통 계획</h2>
+                 <div class="overflow-hidden rounded-lg border border-gray-200">
+                    <table class="w-full">
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">출발 시간 및 장소</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">교통수단</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">예상 소요 시간</td>
+                                <td class="align-middle">
+                                    편도
+                                    <span class="inline-block bg-gray-200 rounded-full px-5 py-3 mx-1"></span>시간
+                                    <span class="inline-block bg-gray-200 rounded-full px-5 py-3 mx-1"></span>분 /
+                                    왕복
+                                    <span class="inline-block bg-gray-200 rounded-full px-5 py-3 mx-1"></span>시간
+                                    <span class="inline-block bg-gray-200 rounded-full px-5 py-3 mx-1"></span>분
+                                </td>
+                            </tr>
+                             <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">예상 교통비</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/4 font-medium bg-gray-50">차를 타고 내리는 장소</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. 시간별 일정표 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">3. 시간별 일정표</h2>
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="w-1/4">시간</th>
+                                <th class="w-1/2">장소 및 활동</th>
+                                <th class="w-1/4">
+                                    기타
+                                    <div class="text-xs font-normal text-gray-500 mt-1">(기타 중요한 사항이 있을 경우 추가로 적습니다.)</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr><td class="font-semibold bg-gray-50" colspan="3">오전</td></tr>
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                            <tr><td class="font-semibold bg-gray-50">점심</td><td></td><td></td></tr>
+                            <tr><td class="font-semibold bg-gray-50" colspan="3">오후</td></tr>
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- 4. 방문 장소 정보 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">4. 방문 장소 정보</h2>
+                <div class="space-y-6">
+                    <div class="overflow-hidden rounded-lg border border-gray-200">
+                        <table class="w-full">
+                            <thead class="bg-gray-100">
+                                <tr><th colspan="2" class="text-left text-lg font-semibold p-3">장소 1: </th></tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr><td class="w-1/4 font-medium bg-gray-50">주소</td><td></td></tr>
+                                <tr><td class="w-1/4 font-medium bg-gray-50">운영시간</td><td></td></tr>
+                                <tr><td class="w-1/4 font-medium bg-gray-50">입장료</td><td></td></tr>
+                                <tr><td class="w-1/4 font-medium bg-gray-50">주요 볼거리/체험</td><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="overflow-hidden rounded-lg border border-gray-200">
+                        <table class="w-full">
+                            <thead class="bg-gray-100">
+                                <tr><th colspan="2" class="text-left text-lg font-semibold p-3">장소 2: </th></tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr><td class="w-1/4 font-medium bg-gray-50">주소</td><td></td></tr>
+                                <tr><td class="w-1/4 font-medium bg-gray-50">운영시간</td><td></td></tr>
+                                <tr><td class="w-1/4 font-medium bg-gray-50">입장료</td><td></td></tr>
+                                <tr><td class="w-1/4 font-medium bg-gray-50">주요 볼거리/체험</td><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 예산 계획 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">5. 예산 계획</h2>
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                     <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th>항목</th>
+                                <th>예상 비용</th>
+                                <th>실제 지출</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr><td>교통비</td><td></td><td></td><td></td></tr>
+                            <tr><td>입장료</td><td></td><td></td><td></td></tr>
+                            <tr><td>식비</td><td></td><td></td><td></td></tr>
+                            <tr><td>기타</td><td></td><td></td><td></td></tr>
+                            <tr class="font-bold bg-gray-50">
+                                <td>총 합계</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- 6. 식사 계획 -->
+             <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">6. 식사 계획</h2>
+                <ul class="space-y-3 text-gray-700 pl-5">
+                    <li><strong class="font-medium text-gray-900 w-auto inline-block">점심 (장소/메뉴):</strong> <span class="placeholder w-3/4"></span></li>
+                </ul>
+            </section>
+            
+            <!-- 7. 준비물 체크리스트 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">7. 준비물 체크리스트</h2>
+                <div class="p-4 border rounded-lg">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                        <li class="flex items-baseline"><input type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded mr-3"><span class="placeholder w-full pt-2"></span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 8. 비상 계획 -->
+            <section>
+                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-4">8. 비상 계획</h2>
+                <div class="overflow-hidden rounded-lg border border-gray-200">
+                    <table class="w-full">
+                        <tbody class="text-gray-700">
+                            <tr>
+                                <td class="w-1/3 font-medium bg-gray-50">날씨가 좋지 않을 경우</td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td class="w-1/3 font-medium bg-gray-50">예상치 못한 상황 발생 시</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="w-1/3 font-medium bg-gray-50">계획한 사람들 <div class="text-sm font-normal text-gray-500 mt-1">(모둠원 이름을 적으세요)</div></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>
+
