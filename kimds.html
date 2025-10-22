@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백곡 선생 소개</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 문서의 가독성을 높이기 위한 기본 스타일 */
+        body {
+            font-family: 'SUITE Variable', "Malgun Gothic", "맑은 고딕", sans-serif;
+            line-height: 1.7;
+            margin: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        /* * 탭 기능 스타일 
+         */
+        /* 탭 버튼 컨테이너 */
+        .tab-buttons {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-bottom: none;
+        }
+        /* 탭 버튼 */
+        .tab-button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+        /* 활성화된 탭 버튼 */
+        .tab-button.active {
+            background-color: #fff;
+            font-weight: bold;
+            border-bottom: 2px solid #fff; /* 콘텐츠와 연결되는 느낌 */
+        }
+
+        /* 탭 콘텐츠 컨테이너 */
+        .tab-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-top: none;
+            background-color: #fff;
+        }
+        /* 탭 콘텐츠 (기본 숨김) */
+        .tab-content {
+            display: none;
+            animation: fadeEffect 0.5s; /* 부드러운 전환 효과 */
+        }
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* 단어 풀이 탭 내부의 h2 스타일 */
+        #tab-glossary h2 {
+            font-family: 'SUITE Variable';
+            color: #444;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            margin-top: 0; /* 탭 내부에 있으므로 상단 여백 제거 */
+        }
+        
+        /* 기존 스타일 유지 */
+        p {
+            color: #222;
+            text-indent: 1em; /* 문단 첫 줄 들여쓰기 */
+        }
+        hr {
+            border: 0;
+            border-top: 2px solid #000;
+            margin: 40px 0;
+        }
+        .glossary {
+            padding-left: 0;
+        }
+        .glossary dt {
+            font-weight: bold;
+            color: #0056b3; /* 용어 색상 */
+            margin-top: 15px;
+        }
+        .glossary dd {
+            margin-left: 20px; /* 설명 들여쓰기 */
+            color: #555;
+        }
+        .source {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            text-indent: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>백곡(柏谷) 김득신</h1>
+
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'tab-main')">백곡 김득신</button>
+        <button class="tab-button" onclick="openTab(event, 'tab-glossary')">어려운 단어 풀이</button>
+    </div>
+
+    <div class="tab-container">
+
+        <div id="tab-main" class="tab-content" style="display:block;">
+            <p>
+                백곡(柏谷) 김득신은 본관이 안동(安東)이며, 경상도관찰사를 역임한 김치(金緻)의 아들입니다. 그는 유년 시절 천연두를 앓아 노둔하였으나, 부친의 엄격한 가르침과 훈도를 바탕으로 각고의 노력을 거듭하여 마침내 문명을 떨친 인물입니다. 당대 한문사대가인 이식(李植)으로부터 “그대의 시문이 당금의 제일”이라는 극찬을 받으며 세상에 이름을 알렸습니다. 특히 그는 옛 선현의 글을 탐독하는 데 주력하였는데, 그중 「백이전(伯夷傳)」은 1억 1만 8천 번(현재의 10만 번에 해당)이나 읽었다고 하여, 자신의 서재를 ‘억만재(億萬齋)’라 명명하기도 하였습니다.
+            </p>
+            
+            <p>
+                병자호란으로 인해 많은 저술이 소실되었음에도 불구하고, 그의 문집 『백곡집(柏谷集)』에는 다수의 시문이 전해지고 있습니다. 문집의 과반을 시가 차지하는 것으로 보아 그가 문(文)보다 시(詩)에 더욱 능통했음을 알 수 있으며, 특히 오언·칠언절구에 뛰어났습니다. 「용호(龍湖)」, 「전가(田家)」 등은 농어촌의 정경을 그림같이 묘사한 대표작입니다. 그는 시를 짓는 능력뿐만 아니라 감식하는 안목 또한 높아, 『종남총지(終南叢志)』라는 시화(詩話)를 남겨 선대 및 당대 문인들의 시를 비평하였습니다. 이 밖에도 술과 부채를 의인화한 가전소설(假傳小說) 「환백장군전(歡伯將軍傳)」과 「청풍선생전(淸風先生傳)」을 저술한 바 있습니다.
+            </p>
+        </div>
+
+        <div id="tab-glossary" class="tab-content">
+            <h2>어려운 단어 풀이</h2>
+
+            <dl class="glossary">
+                <dt>본관(本貫)</dt>
+                <dd>그 가문이 시작된 고향, 시조(첫 조상)가 자리를 잡은 곳을 의미합니다. (예: 안동 김씨)</dd>
+
+                <dt>역임(歷任)하다</dt>
+                <dd>여러 가지 직책을 차례로 거쳐 지내다.</dd>
+
+                <dt>노둔(魯鈍)하다</dt>
+                <dd>어리석고 둔하다. 재빠르거나 총명하지 못하다.</dd>
+
+                <dt>훈도(訓導)</dt>
+                <dd>가르치고 이끌어 지도함.</dd>
+
+                <dt>각고(刻苦)의 노력</dt>
+                <dd>뼈를 깎는 듯한 아주 힘겹고 고통스러운 노력.</dd>
+                
+                <dt>문명(文名)을 떨치다</dt>
+                <dd>글이나 학문으로 세상에 이름을 널리 알리다.</dd>
+                
+                <dt>한문사대가(漢文四大家)</dt>
+                <dd>조선 시대 한문학의 4대 거장. (보통 이정구, 신흠, 이식, 장유를 말함)</dd>
+                
+                <dt>당금(當今)</dt>
+                <dd>지금 현재, 바로 이 시대.</dd>
+
+                <dt>선현(先賢)</dt>
+                <dd>옛날의 어질고 슬기로운 사람.</dd>
+
+                <dt>탐독(耽讀)하다</dt>
+                <dd>어떤 책이나 글을 깊이 빠져들어 즐겨 읽다.</dd>
+                
+                <dt>명명(命名)하다</dt>
+                <dd>이름을 지어 붙이다.</dd>
+
+                <dt>저술(著述)</dt>
+                <dd>글이나 책을 지어 씀. 또는 그렇게 지은 책.</dd>
+
+                <dt>소실(燒失)되다</dt>
+                <dd>불에 타서 없어지다.</dd>
+
+                <dt>시문(詩文)</dt>
+                <dd>시(詩)와 산문(文)을 아울러 이르는 말. (즉, 모든 종류의 글)</dd>
+
+                <dt>과반(過半)</dt>
+                <dd>절반이 넘음.</dd>
+
+                <dt>능통(能通)하다</dt>
+                <dd>어떤 분야에 대하여 매우 잘 알고 뛰어나다.</dd>
+
+                <dt>오언·칠언절구(五言·七言絕句)</dt>
+                <dd>한시(한자 시)의 한 형식. 한 줄에 5글자 또는 7글자로 이루어진 4줄짜리 짧은 시.</dd>
+
+                <dt>정경(情景)</dt>
+                <dd>감정이나 분위기가 담겨 있는 경치나 광경.</dd>
+
+                <dt>감식(鑑識)하다</dt>
+                <dd>전문적인 지식으로 사물(특히 예술품)의 가치를 살피고 구별하다.</dd>
+
+                <dt>안목(眼目)</dt>
+                <dd>사물을 보고 분별할 줄 아는 능력이나 식견.</dd>
+
+                <dt>시화(詩話)</dt>
+                <dd>시에 얽힌 이야기나 시에 대한 비평 등을 적은 글.</dd>
+
+                <dt>선대(先代) / 당대(當代)</dt>
+                <dd>선대(先代)는 앞선 시대, 당대(當代)는 바로 그 시대를 뜻합니다.</dd>
+
+                <dt>의인화(擬人化)</dt>
+                <dd>사람이 아닌 것을 사람처럼 생각하고 표현하는 방법.</dd>
+
+                <dt>가전소설(假傳小說)</dt>
+                <dd>물건(사물)을 의인화하여 그 일생을 다룬, 전기(위인전) 형식의 옛날 소설.</dd>
+            </dl>
+        </div>
+        
+    </div> <hr>
+    
+    <p class="source">
+        출처: 한국민족문화대백과사전, 김영
+    </p>
+
+    <script>
+        function openTab(event, tabName) {
+            var i, tabcontent, tablinks;
+
+            // 모든 탭 콘텐츠(tab-content)를 가져와서 숨깁니다.
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // 모든 탭 버튼(tab-button)에서 'active' 클래스를 제거합니다.
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // 클릭된 탭(tabName)의 콘텐츠를 보여주고,
+            // 클릭된 버튼(event.currentTarget)에 'active' 클래스를 추가합니다.
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>
