@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위인들의 공부 방법</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --d-blue: #24759e; /* 포인트 색상 */
+            --d-blue-light: #BFDBFE; /* Tailwind의 blue-200 색상 */
+        }
+
+        body {
+            font-family:  'SUITE Variable', 'Noto Sans KR', sans-serif;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* --- 카드 뒤집기 스타일 --- */
+        .card {
+            perspective: 1000px; /* 3D 공간을 만듭니다 */
+            min-height: 500px; /* 카드의 최소 높이를 늘려서 내용이 잘 보이도록 수정 */
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card.is-flipped .card-inner {
+            transform: rotateY(180deg); /* 클릭 시 Y축으로 180도 회전 */
+        }
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .card-front {
+            background-color: white;
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            justify-content: flex-start; /* 위에서부터 정렬되도록 수정 */
+        }
+        .card-back {
+            transform: rotateY(180deg); /* 뒷면은 미리 180도 돌려놓습니다 */
+            background-color: #4B5563; /* bg-gray-600 */
+            color: white;
+            padding: 1.5rem; /* p-6 */
+            align-items: center;
+            text-align: center;
+        }
+        /* --- 끝: 카드 뒤집기 스타일 --- */
+
+        /* --- 탭 스타일 --- */
+        .tab-button {
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+            color: #6B7280; /* text-gray-500 */
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px; /* 컨테이너의 border-b와 겹치도록 */
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .tab-button.active {
+            color: var(--d-blue);
+            border-color: var(--d-blue);
+        }
+        .tab-panel.hidden {
+            display: none;
+        }
+        /* --- 끝: 탭 스타일 --- */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2" style="color: var(--d-blue);">위인들의 공부 방법</h1>
+            <p class="text-lg text-gray-600">역사를 바꾼 인물들의 학습 방식을 소개합니다.</p>
+        </header>
+
+        <section class="mb-16">
+            <div class="flex border-b-2 border-gray-200 mb-8 justify-center">
+                <button class="tab-button active" data-tab="western">서양 위인들의 공부법</button>
+                <button class="tab-button" data-tab="eastern">동양 위인들의 공부법</button>
+            </div>
+
+            <div>
+                <div id="western" class="tab-panel active">
+                    <div class="card-container">
+                        
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">레오나르도 다 빈치</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'세밀한 관찰과 기록'</p>
+                                    <p class="text-base">다 빈치 공부법의 핵심은 모든 사물을 끝없이 관찰하고 꼼꼼하게 기록하는 것이었어요. 그는 해부학, 식물학, 공학 등 모든 분야의 노트를 남겼습니다. 그는 방대한 기록을 남들이 훔쳐보지 못하게 거울 글씨를 사용하기도 했습니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        이탈리아 르네상스 시대를 상징하는 '만능 천재(Uomo Universale)'입니다. '모나리자', '최후의 만찬' 등 불후의 명작을 남긴 화가이자, 해부학, 공학, 건축 등 다방면에 걸쳐 방대한 연구를 수행한 과학자였습니다. 그는 비행 장치와 같은 시대를 초월한 발명품들을 고안하고 상세한 스케치로 남겼습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">레오나르도 다 빈치</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">르네상스 천재</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">모나리자</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">최후의 만찬</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">다빈치 노트</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">인체 해부도</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">스푸마토 기법</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>레오나르도 다 빈치, 《코덱스 레스터》, 《코덱스 아룬델》 (대표적인 관찰 노트)</li>
+                                        <li>조르조 바사리, 《르네상스 미술가 열전》</li>
+                                        <li>찰스 니콜, 《레오나르도 다 빈치: 천재의 일생》 - 도서</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">알베르트 아인슈타인</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'머릿속 '상상 실험''</p>
+                                    <p class="text-base">아인슈타인은 실제로 실험할 수 없는 것들을 머릿속으로 상상하며 실험했어요. "만약 내가 빛의 속도로 날아간다면 세상은 어떻게 보일까?" 와 같은 질문을 던지며 위대한 이론들을 발견했답니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        20세기 이론 물리학의 패러다임을 바꾼 위대한 과학자입니다. 그는 '특수 상대성 이론'과 '일반 상대성 이론'을 발표하여, 기존의 시간과 공간, 중력에 대한 개념을 근본적으로 뒤집었습니다. 'E=mc²'라는 질량-에너지 등가 원리로도 유명하며, 광전 효과 연구로 노벨 물리학상을 수상했습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">아인슈타인</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">상대성 이론</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">E=mc²</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">광전 효과</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">노벨 물리학상</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">브라운 운동</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">사고 실험</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>월터 아이작슨, 《아인슈타인: 그의 삶과 우주》 - 도서</li>
+                                        <li>사이언스타임즈 (2015) "아인슈타인의 사고실험"</li>
+                                        <li>알베르트 아인슈타인, 《상대성 이론》 - 도서</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">리처드 파인만</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'어린 아이에게 설명하기'</p>
+                                    <p class="text-base">아무리 어려운 내용이라도 어린 아이가 이해할 수 있을 만큼 쉽게 설명할 수 없다면, 그건 제대로 아는 게 아니라고 생각했어요. 이 방법은 '파인만 학습법'으로 불리며, 복잡한 것을 간단하게 만드는 최고의 공부법으로 알려져 있습니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        미국의 독창적이고 유쾌한 이론 물리학자입니다. '양자 전기역학(QED)'을 재정립한 공로로 노벨 물리학상을 수상했습니다. 복잡한 개념을 직관적으로 설명하는 데 탁월했으며, 이는 '파인만 학습법'으로 널리 알려지게 되었습니다. 맨해튼 프로젝트에 참여했으며, 챌린저호 폭발 사고의 원인을 규명한 것으로도 유명합니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">리처드 파인만</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">파인만 학습법</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">양자 전기역학</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">파인만 다이어그램</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">챌린저호 사고</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">맨해튼 프로젝트</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>제임스 글릭, 《천재: 리처드 파인만의 삶과 과학》 - 도서</li>
+                                        <li>리처드 파인만, 《파인만씨, 농담도 잘하시네!》 - 도서</li>
+                                        <li>The Feynman Lectures on Physics (파인만 물리학 강의)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">레프 톨스토이</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'따라 쓰며 배우기' (필사)</p>
+                                    <p class="text-base">톨스토이는 다른 훌륭한 작가들의 글을 그대로 베껴 쓰면서 글쓰기를 배웠어요. 좋은 문장을 따라 쓰다 보면, 그 문장의 구조와 표현 방법을 자연스럽게 내 것으로 만들 수 있다고 믿었죠. '전쟁과 평화'는 무려 7번이나 다시 썼다고 해요!</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        19세기 러시아 문학을 대표하는 세계적인 문호이자 사상가입니다. '전쟁과 평화', '안나 카레니나'와 같은 대작을 통해 인간 본성과 역사를 깊이 있게 통찰했습니다. 말년에는 기독교적 무저항주의와 비폭력 사상을 설파하며 사회 개혁에도 큰 영향을 미쳤으며, 교육에도 지대한 관심을 가졌습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">레프 톨스토이</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">전쟁과 평화</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">안나 카레니나</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">부활</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">톨스토이즘</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">러시아 문학</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>리더스뉴스 (2020) "톨스토이의 필사법"</li>
+                                        <li>에듀인뉴스 (2016) "글쓰기 훈련, 고전 필사에서 답을 찾다"</li>
+                                        <li>이다혜, 《필사의 힘》 (2018) - 도서</li>
+                                        <li>Brunch "필사, 가장 정직한 글쓰기 공부"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="eastern" class="tab-panel hidden">
+                    <div class="card-container">
+                        
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">공자</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'배운 내용 복습하기'</p>
+                                    <p class="text-base">공자는 "배우고, 배운 것을 때때로 다시 익히면 즐겁지 아니한가?" 라고 말했어요. 한 번 배우는 것보다, 배운 것을 꾸준히 복습해서 완전히 자기 것으로 만드는 과정이 더 중요하다고 강조했답니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        중국 춘추시대의 위대한 사상가이자 교육자로, 유교(儒敎)의 시조(始祖)입니다. 그의 가르침은 제자들에 의해 '논어(論語)'로 집대성되었습니다. '인(仁)'을 최고의 덕목으로 삼고, '예(禮)'를 통한 사회 질서의 회복을 주장하며 동아시아 문명에 지대한 영향을 미쳤습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">공자</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">논어</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">유교</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">인(仁)</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">춘추시대</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">제자백가</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">성인(聖人)</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>《논어(論語)》 - 학이(學而) 편 제1장</li>
+                                        <li>GS칼텍스 미디어허브 (2024) "공자가 말한 '배움의 즐거움'"</li>
+                                        <li>신동준, 《공자, 사람을 읽다》 (2012) - 도서</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">왕양명</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'아는 것은 바로 행동으로'</p>
+                                    <p class="text-base">'지행합일'을 주장했어요. 즉, 아는 것과 행동하는 것은 하나여야 한다는 뜻이에요. 진정한 앎은 실천으로 이어져야만 가치가 있다고 생각했죠. 일상생활 속에서 배움을 실천하는 것을 중요하게 여겼습니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        중국 명나라 시대의 저명한 철학자, 정치가이자 군인이었습니다. 그는 '양명학(陽明學)'을 창시하여, 당시 주류였던 주자학(朱子學)에 새로운 방향을 제시했습니다. '마음이 곧 이치'라는 '심즉리(心即理)'와 '앎과 실천은 하나'라는 '지행합일(知行合一)'을 핵심 사상으로 주장했습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">왕양명</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">왕수인</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">양명학</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">지행합일</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">심즉리</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">전습록</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">명나라</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>왕양명, 《전습록(傳習錄)》</li>
+                                        <li>김우성, 김영희 (2015). "왕양명 '지행합일' 사상의 현대적 의의" (유교사상연구)</li>
+                                        <li>이수태, 《왕양명, 고통 속에서 피어난 꽃》 (2020) - 도서</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">정약용</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'실생활과 관련지어 공부하기'</p>
+                                    <p class="text-base">정약용은 책상에 앉아서 하는 공부뿐만 아니라, 현실의 문제를 해결하는 실용적인 공부를 중요하게 생각했어요. 직접 보고, 경험하고, 관찰한 것을 꼼꼼하게 기록하며 백성들의 삶에 도움이 되는 학문을 연구했습니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        조선 후기 실학(實學) 사상을 집대성한 위대한 학자이자 사상가입니다. 호는 다산(茶山)이며, 오랜 유배 기간 동안 500여 권에 달하는 방대한 저술을 남겼습니다. '목민심서', '경세유표' 등의 저서를 통해 당시 사회의 개혁과 백성의 삶을 개선하기 위한 실용적인 학문을 강조했습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">정약용</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">다산 정약용</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">실학</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">목민심서</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">경세유표</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">흠흠신서</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">거중기</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>정약용, 《목민심서(牧民心書)》</li>
+                                        <li>박석무, 《다산 정약용 평전》 (2004) - 도서</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">세종대왕</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'백번 읽고, 백번 익히기' (백독백습)</p>
+                                    <p class="text-base">세종대왕은 '책 한 권을 백 번 읽고 백 번 익힌다'는 원칙을 가졌어요. 뜻이 통할 때까지 무한히 반복해서 읽는 지독한 독서광이었죠. 이런 깊이 있는 공부가 훈민정음 창제와 같은 위대한 업적의 바탕이 되었습니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        조선의 제4대 국왕으로, 한국 역사상 가장 위대한 성군(聖君)으로 추앙받습니다. 백성을 위한 애민정신을 바탕으로 '훈민정음(한글)'을 창제하였습니다. '집현전'을 설치하여 학문을 진흥시켰으며, 장영실 등을 등용하여 측우기, 해시계 등 과학 기술을 비약적으로 발전시켰습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">세종대왕</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">훈민정음</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">한글 창제</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">집현전</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">장영실</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">애민정신</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">측우기</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>《세종실록(世宗實錄)》</li>
+                                        <li>박현모, 《세종처럼: 백성을 위한 리더십》 (2014) - 도서</li>
+                                        <li>시사저널 (2022) "세종대왕의 지독한 독서법, 백독백습"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <h3 class="text-2xl font-bold mb-2">정조</h3>
+                                    <p class="font-semibold mb-3" style="color: var(--d-blue);">'매일 반성하고 토론하기'</p>
+                                    <p class="text-base">정조는 '일성록(日省錄)'이라는 제목처럼 '매일 반성한다'는 원칙을 세웠어요. 하루의 공부와 나라 일을 꼼꼼히 기록하고, 규장각 학사 등 신하들과 밤늦도록 토론하며 배운 것을 끊임없이 점검하고 깊이 있게 만들었습니다.</p>
+                                    
+                                    <hr class="my-3 border-gray-300">
+                                    <h4 class="text-md font-bold mb-1" style="color: var(--d-blue);">[누구인가요?]</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">
+                                        조선의 제22대 국왕으로, 조선 후기 문예 부흥을 이끈 개혁 군주입니다. 왕실 도서관이자 학술 기관인 '규장각'을 설치하여 인재를 양성하고 왕권을 강화했습니다. 스스로 '홍재(弘齋)'라 칭할 만큼 학문이 깊었으며, 개혁 의지를 담아 '수원 화성'을 축성하고 장용영을 창설했습니다.
+                                    </p>
+                                    <h5 class="text-sm font-bold mt-3 mb-2">[추천 검색어]</h5>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">정조</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">정조 이산</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">규장각</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">수원 화성</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">장용영</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">문체반정</span>
+                                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">홍재전서</span>
+                                    </div>
+                                    </div>
+                                <div class="card-back">
+                                    <h4 class="text-xl font-bold mb-3">출처 및 참고자료</h4>
+                                    <ul class="list-disc list-outside text-sm opacity-90 pl-5" style="text-align: left;">
+                                        <li>《일성록(日省錄)》 (유네스코 세계기록유산)</li>
+                                        <li>《홍재전서(弘齋全書)》 (정조 개인 문집)</li>
+                                        <li>김문식, 《정조의 사상과 학문》 (2010) - 도서</li>
+                                        <li>이덕일, 《정조와 규장각: 천재 군주의 리더십과 개혁》 (2005) - 도서</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center p-6 bg-gray-800 text-white rounded-lg">
+            <p>나의 공부 방법을 되짚어 보고 위인들의 공부 방법과 비교해 보세요.</p>
+            <p class="mt-2">내가 공부하는 방법의 장점과 단점은 무엇인가요?</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 카드 뒤집기 스크립트 ---
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // 'is-flipped' 클래스를 추가하거나 제거하여 카드를 뒤집습니다.
+                    card.classList.toggle('is-flipped');
+                });
+            });
+
+            // --- 탭 스크립트 ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    // 1. 모든 탭 버튼에서 'active' 클래스 제거
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // 2. 클릭된 탭 버튼에 'active' 클래스 추가
+                    button.classList.add('active');
+
+                    // 3. 모든 탭 패널에 'hidden' 클래스 추가
+                    tabPanels.forEach(panel => {
+                        if (!panel.classList.contains('hidden')) {
+                            panel.classList.add('hidden');
+                        }
+                    });
+
+                    // 4. 타겟 탭 패널에서 'hidden' 클래스 제거
+                    const targetPanel = document.getElementById(targetTab);
+                    if (targetPanel) {
+                        targetPanel.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
