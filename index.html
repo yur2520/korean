@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,14 +27,22 @@
 
         /* --- 카드 레이아웃 컨테이너 --- */
         .card-container {
-            display: flex; /* Flexbox 레이아웃 사용 */
-            justify-content: center; /* 가로 중앙 정렬 */
-            align-items: flex-start; /* 세로 상단 정렬 */
-            flex-wrap: wrap; /* 카드가 화면 너비를 넘어가면 다음 줄로 이동 */
-            gap: 40px; /* 카드 사이의 간격 */
-            padding: 50px 20px; /* 컨테이너 내부 여백 */
-            min-height: 100vh; /* 최소 높이를 화면 전체로 설정 */
-            box-sizing: border-box; /* padding을 포함하여 높이 계산 */
+            display: flex;
+            /* Flexbox 레이아웃 사용 */
+            justify-content: center;
+            /* 가로 중앙 정렬 */
+            align-items: flex-start;
+            /* 세로 상단 정렬 */
+            flex-wrap: wrap;
+            /* 카드가 화면 너비를 넘어가면 다음 줄로 이동 */
+            gap: 40px;
+            /* 카드 사이의 간격 */
+            padding: 50px 20px;
+            /* 컨테이너 내부 여백 */
+            min-height: 100vh;
+            /* 최소 높이를 화면 전체로 설정 */
+            box-sizing: border-box;
+            /* padding을 포함하여 높이 계산 */
         }
 
         /* --- 개별 카드 스타일 --- */
@@ -43,19 +52,21 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 320px; /* 카드의 기본 너비 */
+            width: 320px;
+            /* 카드의 기본 너비 */
             box-sizing: border-box;
         }
 
         /* --- 텍스트 및 버튼 스타일 (기존 스타일 유지) --- */
         .card h1 {
             color: #7ebad9;
-            margin-top: 0; /* h1 상단 마진 제거 */
+            margin-top: 0;
+            /* h1 상단 마진 제거 */
             margin-bottom: 20px;
             font-size: 2.2em;
             font-weight: 700;
         }
-        
+
         .card p {
             margin-bottom: 30px;
             font-size: 0.84em;
@@ -63,7 +74,8 @@
         }
 
         .button-group a {
-            display: block; /* 버튼을 블록 요소로 변경하여 한 줄에 하나씩 표시 */
+            display: block;
+            /* 버튼을 블록 요소로 변경하여 한 줄에 하나씩 표시 */
             background-color: #7ebad9;
             color: white;
             padding: 12px 22px;
@@ -73,40 +85,44 @@
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 15px; /* 버튼 사이의 간격 */
+            margin-bottom: 15px;
+            /* 버튼 사이의 간격 */
         }
 
         .button-group a:last-child {
-            margin-bottom: 0; /* 마지막 버튼의 하단 간격 제거 */
+            margin-bottom: 0;
+            /* 마지막 버튼의 하단 간격 제거 */
         }
 
         .button-group a:hover {
             background-color: #24759e;
-            transform: translateY(-2px); /* 호버 시 살짝 위로 이동하는 효과 */
+            transform: translateY(-2px);
+            /* 호버 시 살짝 위로 이동하는 효과 */
         }
-        
+
         /* 비활성화된 버튼 스타일 */
         .button-group a.disabled {
             background-color: #cdd2d5;
             cursor: not-allowed;
-            pointer-events: none; /* 클릭 이벤트 비활성화 */
+            pointer-events: none;
+            /* 클릭 이벤트 비활성화 */
         }
-        
+
         .button-group a.disabled:hover {
             transform: none;
         }
-
     </style>
 </head>
+
 <body>
     <div class="card-container">
-    
+
         <div class="card">
             <h1>국어 5-1</h1>
             <p>5학년 1학기 국어자료</p>
             <div class="button-group">
                 <a href="readingmethods.html">여러 가지 읽기 방법</a>
-                <a href="writing_story1.html">겪은 일을 글로 쓰기</a>               
+                <a href="writing_story1.html">겪은 일을 글로 쓰기</a>
             </div>
         </div>
 
@@ -116,34 +132,34 @@
             <div class="button-group">
 
                 <a href="sns_etiquette3.html">SNS 사용예절(반면사례)</a>
-                <a href="act_script.html">역할극대본2</a>               
-                <a href="chgs.html">체험한 일 감상이 잘 드러나게 쓰기</a>    
-                <a href="tour.html">체험학습 계획서 만들기</a>    
-                <a href="db2.html">역할극 대본</a> 
-                <a href="kimds.html">김득신</a>    
-                <a href="study-method-from.html">위인들의 공부법</a>       
-                <a href="toron.html">토론주제모음</a>  
-                
+                <a href="act_script.html">역할극대본2</a>
+                <a href="chgs.html">체험한 일 감상이 잘 드러나게 쓰기</a>
+                <a href="tour.html">체험학습 계획서 만들기</a>
+                <a href="db2.html">역할극 대본</a>
+                <a href="kimds.html">김득신</a>
+                <a href="study-method-from.html">위인들의 공부법</a>
+                <a href="toron.html">토론주제모음</a>
+                <a href="urimal_research.html">우리말 사용 조사하기</a>
 
-                <!--<a href="#" class="disabled">자료 준비 중</a>-->
 
             </div>
         </div>
 
-       <div class="card">
+        <div class="card">
             <h1>도덕 5</h1>
             <p>5학년 도덕 자료</p>
             <div class="button-group">
                 <a href="ethic_cyber.html">사이버 공간의 특징</a>
-                <a href="chgs.html">체험한 일 감상이 잘 드러나게 쓰기</a>    
-                <a href="tour.html">체험학습 계획서 만들기</a>                    
+                <a href="chgs.html">체험한 일 감상이 잘 드러나게 쓰기</a>
+                <a href="tour.html">체험학습 계획서 만들기</a>
                 <!--<a href="#" class="disabled">자료 준비 중</a>-->
             </div>
         </div>
 
-        
 
-       
+
+
     </div>
 </body>
+
 </html>
